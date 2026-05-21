@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Stages — финал логотипа</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#0b0f19;
+    --blue-dark:#1e3a8a;
+    --blue:#2563eb;
+    --coral:#ff6b4a;
+    --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-300:#cbd5e1;
+    --slate-400:#94a3b8;--slate-500:#64748b;--slate-700:#334155;--slate-900:#0f172a;
+  }
+  html,body{font-family:'Inter',system-ui,sans-serif;background:var(--slate-50);color:var(--slate-900);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:48px 24px 80px}
+  header{margin-bottom:40px}
+  h1{font-size:28px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px}
+  .sub{color:var(--slate-500);font-size:14px;max-width:640px;line-height:1.55}
+
+  .section{margin-top:40px}
+  .section h2{font-size:12px;font-weight:700;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+
+  /* Hero — large preview, on 3 backgrounds */
+  .hero-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .hero-cell{aspect-ratio:1/1;border-radius:24px;display:flex;align-items:center;justify-content:center;border:1px solid var(--slate-200);position:relative;overflow:hidden}
+  .hero-cell svg{width:45%;height:45%;display:block}
+  .bg-white{background:#fff}
+  .bg-slate{background:var(--slate-100)}
+  .bg-ink{background:var(--ink)}
+  .hero-cell .tag{position:absolute;top:12px;left:12px;font-size:10px;font-weight:700;color:var(--slate-400);letter-spacing:0.08em;text-transform:uppercase}
+  .bg-ink .tag{color:#64748b}
+
+  /* Size strip */
+  .sizes{background:#fff;border:1px solid var(--slate-200);border-radius:20px;padding:28px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px}
+  .size-group{display:flex;flex-direction:column;align-items:center;gap:10px}
+  .size-group svg{display:block}
+  .size-group .lbl{font-size:10px;font-weight:600;color:var(--slate-400);letter-spacing:0.06em;text-transform:uppercase}
+  .s-128{width:128px;height:128px}
+  .s-64{width:64px;height:64px}
+  .s-48{width:48px;height:48px}
+  .s-32{width:32px;height:32px}
+  .s-24{width:24px;height:24px}
+  .s-16{width:16px;height:16px}
+
+  /* In context — header mocks */
+  .contexts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .ctx{border-radius:16px;overflow:hidden;border:1px solid var(--slate-200);background:#fff}
+  .ctx .bar{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--slate-100);font-size:13px;font-weight:600}
+  .ctx .bar .lhs{display:flex;align-items:center;gap:10px}
+  .ctx .bar svg{width:28px;height:28px}
+  .ctx .bar .links{display:flex;gap:16px;font-size:12px;color:var(--slate-500);font-weight:500}
+  .ctx .body{padding:24px;min-height:140px;background:var(--slate-50)}
+  .ctx.dark .bar{background:var(--ink);color:#fff;border-bottom-color:#1e293b}
+  .ctx.dark .bar .links{color:#94a3b8}
+  .ctx.dark .body{background:#020617}
+
+  /* Tab preview */
+  .tabs{background:#fff;border:1px solid var(--slate-200);border-radius:16px;overflow:hidden}
+  .tabs-bar{display:flex;gap:2px;padding:8px 8px 0;background:var(--slate-200)}
+  .tab{background:#fff;padding:8px 14px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--slate-700);max-width:200px;overflow:hidden}
+  .tab svg{width:14px;height:14px;flex-shrink:0}
+  .tab span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tab.inactive{background:var(--slate-100);color:var(--slate-500)}
+  .tabs-body{height:60px;background:#fff}
+
+  /* Palette */
+  .palette{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .swatch{border-radius:12px;padding:16px;color:#fff;min-height:100px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--slate-200)}
+  .sw-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;opacity:.8}
+  .sw-val{font-size:13px;font-weight:600;font-family:'SF Mono',monospace}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Stages — финальная марка</h1>
+    <p class="sub">Три канбан-столбика в палитре Pill-stack: <b>#1e3a8a</b> тёмно-синий, <b>#2563eb</b> синий, <b>#ff6b4a</b> коралловый акцент. Доведённая пластика, выверенные пропорции, без градиентов.</p>
+  </header>
+
+  <!-- Hero backgrounds -->
+  <div class="section">
+    <h2>На разных фонах</h2>
+    <div class="hero-row">
+      <div class="hero-cell bg-white">
+        <span class="tag">Light</span>
+        <svg id="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <!-- Геометрия из 04 Stages — без изменений. Цвета из 03 Две таблетки. -->
+          <rect x="8"  y="26" width="14" height="20" rx="4" fill="#60a5fa"/>
+          <rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/>
+          <rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/>
+          <circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="hero-cell bg-slate">
+        <span class="tag">Slate</span>
+        <svg viewBox="0 0 64 64"><use href="#logo"/></svg>
+      </div>
+      <div class="hero-cell bg-ink">
+        <span class="tag">Dark</span>
+        <svg viewBox="0 0 64 64"><use href="#logo"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Size scale -->
+  <div class="section">
+    <h2>Размеры</h2>
+    <div class="sizes">
+      <div class="size-group"><svg class="s-128" viewBox="0 0 64 64"><use href="#logo"/></svg><span class="lbl">128 px</span></div>
+      <div class="size-group"><svg class="s-64"  viewBox="0 0 64 64"><use href="#logo"/></svg><span class="lbl">64 px</span></div>
+      <div class="size-group"><svg class="s-48"  viewBox="0 0 64 64"><use href="#logo"/></svg><span class="lbl">48 px</span></div>
+      <div class="size-group"><svg class="s-32"  viewBox="0 0 64 64"><use href="#logo"/></svg><span class="lbl">32 px</span></div>
+      <div class="size-group"><svg class="s-24"  viewBox="0 0 64 64"><use href="#logo"/></svg><span class="lbl">24 px</span></div>
+      <div class="size-group"><svg class="s-16"  viewBox="0 0 64 64"><use href="#logo"/></svg><span class="lbl">16 px · favicon</span></div>
+    </div>
+  </div>
+
+  <!-- In-context -->
+  <div class="section">
+    <h2>В интерфейсе</h2>
+    <div class="contexts">
+      <div class="ctx">
+        <div class="bar">
+          <div class="lhs">
+            <svg viewBox="0 0 64 64"><use href="#logo"/></svg>
+            <span>Payment Tracker</span>
+          </div>
+          <div class="links"><span>Клиенты</span><span>Платежи</span><span>Отчёты</span></div>
+        </div>
+        <div class="body"></div>
+      </div>
+      <div class="ctx dark">
+        <div class="bar">
+          <div class="lhs">
+            <svg viewBox="0 0 64 64"><use href="#logo"/></svg>
+            <span>Payment Tracker</span>
+          </div>
+          <div class="links"><span>Клиенты</span><span>Платежи</span><span>Отчёты</span></div>
+        </div>
+        <div class="body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Browser tab -->
+  <div class="section">
+    <h2>Вкладка браузера</h2>
+    <div class="tabs">
+      <div class="tabs-bar">
+        <div class="tab"><svg viewBox="0 0 64 64"><use href="#logo"/></svg><span>Payment Tracker — Клиенты</span></div>
+        <div class="tab inactive"><span>Notion — Планы</span></div>
+        <div class="tab inactive"><span>Figma</span></div>
+      </div>
+      <div class="tabs-body"></div>
+    </div>
+  </div>
+
+  <!-- Palette -->
+  <div class="section">
+    <h2>Палитра логотипа</h2>
+    <div class="palette">
+      <div class="swatch" style="background:#0b0f19"><span class="sw-name">Ink</span><span class="sw-val">#0b0f19</span></div>
+      <div class="swatch" style="background:#1e3a8a"><span class="sw-name">Blue Dark</span><span class="sw-val">#1e3a8a</span></div>
+      <div class="swatch" style="background:#2563eb"><span class="sw-name">Blue</span><span class="sw-val">#2563eb</span></div>
+      <div class="swatch" style="background:#ff6b4a"><span class="sw-name">Coral</span><span class="sw-val">#ff6b4a</span></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

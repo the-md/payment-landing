@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Логотип · характерные марки</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;--blue-900:#1e3a8a;
+    --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-400:#94a3b8;
+    --slate-500:#64748b;--slate-700:#334155;--slate-900:#0f172a;
+    --accent-coral:#ff6b4a;--accent-lime:#c4f542;--accent-pink:#ec4899;--accent-amber:#f59e0b;
+  }
+  html,body{font-family:'Inter',system-ui,sans-serif;background:#fafaf9;color:var(--slate-900);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:48px 24px 80px}
+  header{margin-bottom:40px}
+  h1{font-size:28px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px}
+  .sub{color:var(--slate-500);font-size:14px;max-width:700px;line-height:1.55}
+  .sub b{color:var(--slate-900)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+  .card{background:#fff;border:1px solid var(--slate-200);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+
+  /* Big preview — untinted white, so color choice does the work */
+  .hero-prev{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--slate-100);position:relative}
+  .hero-prev::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--slate-100) 1px,transparent 1px);background-size:16px 16px;opacity:.5}
+  .hero-prev svg{position:relative;width:144px;height:144px;display:block}
+
+  /* Sizes strip */
+  .sizes{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--slate-50);border-bottom:1px solid var(--slate-100)}
+  .sizes svg{display:block}
+  .size-lg{width:48px;height:48px}
+  .size-md{width:32px;height:32px}
+  .size-sm{width:20px;height:20px}
+  .size-xs{width:14px;height:14px}
+  .sizes .spacer{flex:1}
+  .sizes .label{font-size:10px;font-weight:600;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.06em}
+
+  /* Header simulation (dark + light) */
+  .header-strip{display:grid;grid-template-columns:1fr 1fr}
+  .header-cell{padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+  .header-cell svg{width:28px;height:28px;flex-shrink:0}
+  .h-dark{background:var(--slate-900);color:#fff}
+  .h-light{background:#fff;color:var(--slate-900);border-left:1px solid var(--slate-100)}
+
+  .meta{padding:16px 18px 18px;border-top:1px solid var(--slate-100)}
+  .badge{display:inline-block;font-size:10px;font-weight:700;color:var(--blue-600);background:var(--blue-50);padding:3px 8px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:8px}
+  .name{font-size:15px;font-weight:700;color:var(--slate-900);margin-bottom:4px}
+  .desc{font-size:13px;color:var(--slate-500);line-height:1.55}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Характерные марки — 8 концептов</h1>
+    <p class="sub">Каждая — <b>узнаваемая форма со своей пластикой</b>, а не сток-иконка. Фокус на mood Mercury / Ramp / Pitch / Notion: марки, которые можно поставить рядом с названием и отдельно. Нашлось место акцентным цветам, чтобы иконка не сливалась с интерфейсом.</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- 1. Stacked P — пластика как у Figma/Notion -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#3b82f6"/>
+              <stop offset="1" stop-color="#1d4ed8"/>
+            </linearGradient>
+          </defs>
+          <!-- two chunks of P, stacked -->
+          <path d="M14 10h22a14 14 0 0 1 0 28h-14v-8h14a6 6 0 0 0 0-12h-14v30h-8z" fill="url(#g1)"/>
+          <circle cx="44" cy="44" r="6" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <span class="spacer"></span>
+        <span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l1"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l1"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Монограмма</span>
+        <div class="name">01 · P с оплатой</div>
+        <div class="desc">Буква P как графический объект, справа — коралловый «огонёк» (напоминание/активность). Работает как инициал и как марка.</div>
+      </div>
+    </div>
+
+    <!-- 2. Notch — квадрат с вырезом-галочкой -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l2" viewBox="0 0 64 64">
+          <!-- blue square with custom notch -->
+          <path d="M14 10h28a8 8 0 0 1 8 8v28a8 8 0 0 1-8 8H14a8 8 0 0 1-8-8V18a8 8 0 0 1 8-8z
+                   M 42 24 L 28 38 L 22 32" fill="#2563eb" fill-rule="evenodd"/>
+          <circle cx="48" cy="16" r="6" fill="#c4f542"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l2"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l2"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Cutout</span>
+        <div class="name">02 · Квадрат-галочка</div>
+        <div class="desc">Вырез-checkmark внутри скруглённого блока + лаймовая точка как маркер «готово». Дерзко и характерно.</div>
+      </div>
+    </div>
+
+    <!-- 3. Split pill — две таблетки = два состояния (ожидание/оплачено) -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l3" viewBox="0 0 64 64">
+          <!-- Two overlapping rounded capsules forming a "T" shape -->
+          <rect x="8" y="12" width="48" height="18" rx="9" fill="#1e3a8a"/>
+          <rect x="18" y="34" width="48" height="18" rx="9" fill="#2563eb" transform="translate(-10 0)"/>
+          <circle cx="22" cy="43" r="4" fill="#ff6b4a"/>
+          <circle cx="42" cy="21" r="4" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l3"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l3"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Pill stack</span>
+        <div class="name">03 · Две таблетки</div>
+        <div class="desc">Две капсулы со сдвигом — как строки в расписании платежей. Запоминающаяся абстракция без привязки к графикам.</div>
+      </div>
+    </div>
+
+    <!-- 4. Liquid blob with eye/coin — Mercury vibes -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l4" viewBox="0 0 64 64">
+          <path d="M32 6
+                   C 46 6 56 14 56 28
+                   C 56 40 50 46 44 50
+                   C 38 54 36 58 32 58
+                   C 22 58 8 50 8 32
+                   C 8 16 20 6 32 6 Z" fill="#2563eb"/>
+          <circle cx="38" cy="28" r="8" fill="#fff"/>
+          <circle cx="38" cy="28" r="3.5" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l4"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l4"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Mark · характер</span>
+        <div class="name">04 · Каплевидная форма</div>
+        <div class="desc">Неправильная «текучая» форма с цветным «зрачком»-монетой. Mercury-like: абстрактная, но с индивидуальностью.</div>
+      </div>
+    </div>
+
+    <!-- 5. PT ligature — custom letterform -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l5" viewBox="0 0 64 64">
+          <rect x="4" y="4" width="56" height="56" rx="14" fill="#0f172a"/>
+          <!-- P stem -->
+          <rect x="14" y="16" width="7" height="32" rx="1.5" fill="#fff"/>
+          <!-- P bowl, tight -->
+          <path d="M21 16h11a7 7 0 0 1 0 14H21v-6h10a1 1 0 0 0 0-2H21z" fill="#fff"/>
+          <!-- T, crossing -->
+          <rect x="29" y="20" width="22" height="6" rx="1.5" fill="#ff6b4a"/>
+          <rect x="37" y="20" width="6" height="28" rx="1.5" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l5"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l5"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Лигатура</span>
+        <div class="name">05 · PT — лигатура</div>
+        <div class="desc">Сцепка P+T на тёмном: T коралловая, пересекает бровку P. Индивидуальные буквы, как у Mercury или Ramp.</div>
+      </div>
+    </div>
+
+    <!-- 6. Loop — бесконечная петля повторяющихся платежей -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l6" viewBox="0 0 64 64">
+          <!-- stylised infinity/loop as payment cycle -->
+          <path d="M20 32 C 20 22, 32 22, 32 32 C 32 42, 44 42, 44 32 C 44 22, 32 22, 32 32 C 32 42, 20 42, 20 32 Z"
+                fill="none" stroke="#2563eb" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="44" cy="32" r="6" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l6"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l6"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Символ</span>
+        <div class="name">06 · Петля циклов</div>
+        <div class="desc">Стилизованная ∞-петля с «горящей» точкой — метафора recurring payments. Декоративно, запоминается силуэтом.</div>
+      </div>
+    </div>
+
+    <!-- 7. Arc-T — архитектурная буква T в арке -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l7" viewBox="0 0 64 64">
+          <!-- Arch -->
+          <path d="M10 54 V 28 A 22 22 0 0 1 54 28 V 54 H 42 V 28 A 10 10 0 0 0 22 28 V 54 Z"
+                fill="#2563eb"/>
+          <circle cx="32" cy="22" r="5" fill="#fff"/>
+          <circle cx="32" cy="22" r="2" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l7"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l7"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Архитектура</span>
+        <div class="name">07 · Арка</div>
+        <div class="desc">Архитектурная форма «арка» = стабильность, портал. «Зрачок» сверху делает её живой. Серьёзно, но не скучно.</div>
+      </div>
+    </div>
+
+    <!-- 8. Speech-receipt — диалог о деньгах -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="l8" viewBox="0 0 64 64">
+          <!-- Main bubble -->
+          <path d="M12 14h40a6 6 0 0 1 6 6v20a6 6 0 0 1-6 6H30l-10 10V46h-8a6 6 0 0 1-6-6V20a6 6 0 0 1 6-6z" fill="#2563eb"/>
+          <!-- receipt lines -->
+          <rect x="20" y="22" width="24" height="3" rx="1.5" fill="#fff" opacity=".9"/>
+          <rect x="20" y="29" width="16" height="3" rx="1.5" fill="#fff" opacity=".6"/>
+          <rect x="20" y="36" width="20" height="3" rx="1.5" fill="#fff" opacity=".8"/>
+          <!-- accent dot -->
+          <circle cx="50" cy="22" r="3" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#l8"/></svg><span>Payment Tracker</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#l8"/></svg><span>Payment Tracker</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Метафора</span>
+        <div class="name">08 · Чек-облако</div>
+        <div class="desc">Квитанция, спрятанная в облаке диалога — «напомнить об оплате» + «история платежей» одной формой. Дружелюбно и по делу.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

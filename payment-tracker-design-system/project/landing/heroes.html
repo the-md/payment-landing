@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Hero — варианты</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-300:#cbd5e1;
+    --slate-400:#94a3b8;--slate-500:#64748b;--slate-600:#475569;--slate-700:#334155;
+    --slate-800:#1e293b;--slate-900:#0f172a;
+    --ink:#0b0f19;
+    --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-400:#60a5fa;--blue-500:#3b82f6;
+    --blue-600:#2563eb;--blue-700:#1d4ed8;--blue-900:#1e3a8a;
+    --coral:#ff6b4a;
+    --red-500:#ef4444;--red-600:#dc2626;
+    --yellow-400:#facc15;--yellow-500:#eab308;--yellow-700:#a16207;
+    --green-500:#22c55e;--green-600:#16a34a;
+  }
+  html,body{font-family:'Inter',-apple-system,system-ui,sans-serif;color:var(--slate-900);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+  a{color:inherit;text-decoration:none}
+
+  /* === Shared button styles === */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:600;min-height:44px;font-family:inherit;cursor:pointer;border:0;transition:background-color .15s,color .15s,border-color .15s}
+  .btn-primary{background:var(--blue-600);color:#fff}
+  .btn-primary:hover{background:var(--blue-700)}
+  .btn-ghost{background:#fff;color:var(--slate-700);border:1px solid var(--slate-200)}
+  .btn-ghost:hover{background:var(--slate-50)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000}
+  .btn-coral{background:var(--coral);color:#fff}
+  .btn-coral:hover{background:#e85537}
+  .btn-lg{padding:14px 24px;font-size:15px;min-height:52px}
+
+  /* === Shared header === */
+  .hero-header{background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--slate-100)}
+  .hero-header.on-dark{background:rgba(11,15,25,.7);border-bottom-color:rgba(255,255,255,.08)}
+  .hero-header.on-dark a, .hero-header.on-dark .nav-links a{color:#cbd5e1}
+  .hero-header.on-dark .brand{color:#fff}
+  .hero-header.on-dark .nav-links a:hover{color:#fff}
+  .hero-header.on-dark .btn-ghost{background:transparent;border-color:rgba(255,255,255,.15);color:#fff}
+  .hero-header.on-dark .btn-ghost:hover{background:rgba(255,255,255,.06)}
+
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--slate-900)}
+  .brand-mark{width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .brand-mark svg{width:32px;height:32px;display:block}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--slate-600);font-weight:500}
+  .nav-links a:hover{color:var(--slate-900)}
+  .nav-actions{display:flex;gap:8px;align-items:center}
+  .nav-actions .btn{min-height:36px;padding:8px 14px;font-size:13px}
+
+  /* === Hero common === */
+  .hero-section{padding:72px 24px 88px;position:relative;overflow:hidden}
+  .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--slate-200);font-size:12px;font-weight:600;color:var(--slate-600);margin-bottom:20px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:999px;background:var(--green-500)}
+  .eyebrow.on-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:#cbd5e1}
+
+  h1{font-size:52px;font-weight:800;letter-spacing:-0.025em;line-height:1.05;color:var(--slate-900);margin-bottom:20px;text-wrap:balance}
+  h1 .accent{color:var(--blue-600)}
+  h1 .accent-coral{color:var(--coral)}
+  .hero-sub{font-size:18px;color:var(--slate-600);margin-bottom:32px;max-width:560px;text-wrap:pretty}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+
+  .trust{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--slate-500);flex-wrap:wrap}
+  .trust-item{display:inline-flex;align-items:center;gap:6px}
+  .trust-item svg{width:14px;height:14px;color:var(--green-600)}
+
+  /* === Mock window (общий) === */
+  .mock-window{background:#fff;border:1px solid var(--slate-200);border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(15,23,42,.18),0 0 0 1px rgba(15,23,42,.02)}
+  .mock-header{padding:10px 14px;border-bottom:1px solid var(--slate-100);display:flex;align-items:center;gap:6px}
+  .mock-header .dot-mac{width:10px;height:10px;border-radius:999px;background:var(--slate-200)}
+  .mock-body{padding:18px}
+  .mock-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .mock-stat{padding:12px;border-radius:10px;border:1px solid}
+  .mock-stat .lbl{font-size:10px;font-weight:600;color:var(--slate-600)}
+  .mock-stat .val{font-size:17px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+  .mock-stat.blue{background:var(--blue-50);border-color:var(--blue-100)}
+  .mock-stat.blue .val{color:var(--blue-700)}
+  .mock-stat.yellow{background:#fefce8;border-color:#fef9c3}
+  .mock-stat.yellow .val{color:var(--yellow-700)}
+  .mock-stat.red{background:#fef2f2;border-color:#fee2e2}
+  .mock-stat.red .val{color:var(--red-600)}
+  .mock-list{border:1px solid var(--slate-200);border-radius:10px;overflow:hidden}
+  .mock-row{padding:12px 14px;display:flex;align-items:center;gap:10px;border-left:3px solid;font-size:12px}
+  .mock-row + .mock-row{border-top:1px solid var(--slate-100)}
+  .mock-row.overdue{border-left-color:#f87171}
+  .mock-row.pending{border-left-color:var(--yellow-400)}
+  .mock-row.paid{border-left-color:var(--green-500)}
+  .mock-row .status-dot{width:8px;height:8px;border-radius:999px;flex-shrink:0}
+  .mock-row.overdue .status-dot{background:var(--red-500)}
+  .mock-row.pending .status-dot{background:var(--yellow-400)}
+  .mock-row.paid .status-dot{background:var(--green-500)}
+  .mock-row .name{flex:1;font-weight:600;color:var(--slate-900);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mock-row .amount{font-weight:600;font-variant-numeric:tabular-nums}
+  .mock-row .meta{font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px}
+  .mock-row.overdue .meta{color:var(--red-600);background:#fef2f2}
+  .mock-row.pending .meta{color:var(--yellow-700);background:#fefce8}
+  .mock-row.paid .meta{color:var(--green-600);background:#f0fdf4}
+
+  /* === V1: Slate + product mock (текущий, для сравнения) === */
+  .v1{background:var(--slate-50);border-bottom:1px solid var(--slate-100)}
+
+  /* === V2: Тёмный hero, контрастный === */
+  .v2{background:var(--ink);color:#fff;border-bottom:1px solid #1e293b}
+  .v2 h1{color:#fff}
+  .v2 h1 .accent{color:var(--blue-400)}
+  .v2 .hero-sub{color:#cbd5e1}
+  .v2 .trust{color:#94a3b8}
+  .v2 .btn-ghost{background:transparent;border-color:rgba(255,255,255,.15);color:#fff}
+  .v2 .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .v2 .mock-window{box-shadow:0 25px 60px -12px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.04)}
+  .v2-bg{position:absolute;inset:0;background:
+    radial-gradient(1000px 500px at 80% 0%,rgba(37,99,235,.18),transparent 60%),
+    radial-gradient(800px 400px at 0% 100%,rgba(255,107,74,.08),transparent 60%);pointer-events:none}
+
+  /* === V3: Centered, no mock — bold typography === */
+  .v3{background:#fff;border-bottom:1px solid var(--slate-100);padding-top:96px;padding-bottom:96px}
+  .v3 .hero-inner{display:block;text-align:center;max-width:880px}
+  .v3 h1{font-size:72px;line-height:1;margin-bottom:24px}
+  .v3 .hero-sub{margin:0 auto 32px;font-size:19px}
+  .v3 .hero-cta{justify-content:center}
+  .v3 .trust{justify-content:center}
+  .v3 .preview-strip{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:780px;margin-left:auto;margin-right:auto}
+  .v3 .preview-card{aspect-ratio:1;background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+  .v3 .preview-card .pl{font-size:10px;font-weight:600;color:var(--slate-500);text-transform:uppercase;letter-spacing:0.06em}
+  .v3 .preview-card .pv{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+  .v3 .preview-card.coral{background:var(--coral);border-color:var(--coral);color:#fff}
+  .v3 .preview-card.coral .pl{color:rgba(255,255,255,.8)}
+  .v3 .preview-card.dark{background:var(--ink);border-color:var(--ink);color:#fff}
+  .v3 .preview-card.dark .pl{color:#94a3b8}
+  .v3 .preview-card.blue{background:var(--blue-600);border-color:var(--blue-600);color:#fff}
+  .v3 .preview-card.blue .pl{color:rgba(255,255,255,.85)}
+
+  /* === V4: Slate + offset card stack with coral accent === */
+  .v4{background:linear-gradient(180deg,#fff 0%,var(--slate-50) 100%);border-bottom:1px solid var(--slate-100)}
+  .v4 .hero-inner{grid-template-columns:1fr 1fr;gap:48px}
+  .v4 h1{font-size:54px}
+  .v4 .stack{position:relative;padding:24px;height:100%;min-height:420px}
+  .v4 .stack-card{position:absolute;background:#fff;border:1px solid var(--slate-200);border-radius:14px;padding:18px 20px;width:340px;box-shadow:0 12px 28px -8px rgba(15,23,42,.12)}
+  .v4 .stack-card.c1{top:6%;right:0;transform:rotate(2deg)}
+  .v4 .stack-card.c2{top:32%;right:18%;transform:rotate(-3deg);background:var(--ink);color:#fff;border-color:var(--ink)}
+  .v4 .stack-card.c3{top:60%;right:6%;transform:rotate(1deg)}
+  .v4 .stack-card .ch{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-weight:600;margin-bottom:8px;color:var(--slate-500)}
+  .v4 .stack-card.c2 .ch{color:#94a3b8}
+  .v4 .stack-card .nm{font-size:14px;font-weight:700;margin-bottom:4px}
+  .v4 .stack-card .am{font-size:22px;font-weight:800;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+  .v4 .stack-card .pill{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:0.04em}
+  .v4 .stack-card .pill.over{background:#fef2f2;color:var(--red-600)}
+  .v4 .stack-card .pill.pend{background:rgba(250,204,21,.18);color:#fde68a}
+  .v4 .stack-card .pill.paid{background:#f0fdf4;color:var(--green-600)}
+  .v4 .coral-burst{position:absolute;top:8%;left:-4%;width:64px;height:64px;border-radius:50%;background:var(--coral);box-shadow:0 12px 28px -8px rgba(255,107,74,.45);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;letter-spacing:0.04em;transform:rotate(-12deg);z-index:2}
+
+  /* artboard wrapper to ensure hero sits inside its own bounding box */
+  .ab{width:1280px;background:#fff}
+  .ab.dark{background:var(--ink)}
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+</head>
+<body>
+
+<!-- Templates rendered by design canvas -->
+<template id="hero-v1">
+  <div class="ab">
+    <div class="hero-header">
+      <div class="nav">
+        <a href="#" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg></span>
+          Payment Tracker
+        </a>
+        <div class="nav-links">
+          <a href="#">Возможности</a>
+          <a href="#">Как работает</a>
+          <a href="#">Тарифы</a>
+          <a href="#">Вопросы</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#" class="btn btn-ghost">Войти</a>
+          <a href="#" class="btn btn-primary">Начать</a>
+        </div>
+      </div>
+    </div>
+    <section class="hero-section v1">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Запустились — 14 дней бесплатно</span>
+          <h1>Больше никаких <span class="accent">просроченных оплат</span> от клиентов</h1>
+          <p class="hero-sub">Простой инструмент для агентств и фрилансеров. Добавьте клиентов, укажите периодичность — мы напомним, когда кто должен платить, и покажем, кто уже просрочил.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-primary btn-lg">Начать бесплатно →</a>
+            <a href="#" class="btn btn-ghost btn-lg">Как это работает</a>
+          </div>
+          <div class="trust">
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Без карты</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>За 2 минуты</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Telegram-уведомления</span>
+          </div>
+        </div>
+        <div class="mock-window">
+          <div class="mock-header">
+            <span class="dot-mac" style="background:#fca5a5"></span><span class="dot-mac" style="background:#fcd34d"></span><span class="dot-mac" style="background:#86efac"></span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-stats">
+              <div class="mock-stat blue"><div class="lbl">Ожидается</div><div class="val">128 400 ₽</div></div>
+              <div class="mock-stat yellow"><div class="lbl">На неделе</div><div class="val">42 000 ₽</div></div>
+              <div class="mock-stat red"><div class="lbl">Просрочено</div><div class="val">15 000 ₽</div></div>
+            </div>
+            <div class="mock-list">
+              <div class="mock-row overdue"><span class="status-dot"></span><span class="name">ООО «Светлый»</span><span class="amount">35 000 ₽</span><span class="meta">−3 дн</span></div>
+              <div class="mock-row pending"><span class="status-dot"></span><span class="name">Ирина Алексеева</span><span class="amount">12 000 ₽</span><span class="meta">2 дн</span></div>
+              <div class="mock-row pending"><span class="status-dot"></span><span class="name">Студия Метрика</span><span class="amount">48 000 ₽</span><span class="meta">5 дн</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<template id="hero-v2">
+  <div class="ab dark">
+    <div class="hero-header on-dark">
+      <div class="nav">
+        <a href="#" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg></span>
+          Payment Tracker
+        </a>
+        <div class="nav-links">
+          <a href="#">Возможности</a>
+          <a href="#">Как работает</a>
+          <a href="#">Тарифы</a>
+          <a href="#">Вопросы</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#" class="btn btn-ghost">Войти</a>
+          <a href="#" class="btn btn-primary">Начать</a>
+        </div>
+      </div>
+    </div>
+    <section class="hero-section v2">
+      <div class="v2-bg"></div>
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow on-dark"><span class="dot"></span> 247 агентств уже используют</span>
+          <h1>Все оплаты клиентов — <span class="accent">в одном экране</span></h1>
+          <p class="hero-sub">Видите сразу: кто должен заплатить на этой неделе, кто уже просрочил и сколько суммарно ожидается. Уведомления приходят в Telegram, чтобы вы ничего не упустили.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-primary btn-lg">Попробовать 14 дней →</a>
+            <a href="#" class="btn btn-ghost btn-lg">Посмотреть демо</a>
+          </div>
+          <div class="trust">
+            <span class="trust-item">Без карты</span><span style="opacity:.3">·</span>
+            <span class="trust-item">2 минуты на старт</span><span style="opacity:.3">·</span>
+            <span class="trust-item">Отмена в один клик</span>
+          </div>
+        </div>
+        <div class="mock-window">
+          <div class="mock-header">
+            <span class="dot-mac" style="background:#fca5a5"></span><span class="dot-mac" style="background:#fcd34d"></span><span class="dot-mac" style="background:#86efac"></span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-stats">
+              <div class="mock-stat blue"><div class="lbl">Ожидается</div><div class="val">128 400 ₽</div></div>
+              <div class="mock-stat yellow"><div class="lbl">На неделе</div><div class="val">42 000 ₽</div></div>
+              <div class="mock-stat red"><div class="lbl">Просрочено</div><div class="val">15 000 ₽</div></div>
+            </div>
+            <div class="mock-list">
+              <div class="mock-row overdue"><span class="status-dot"></span><span class="name">ООО «Светлый»</span><span class="amount">35 000 ₽</span><span class="meta">−3 дн</span></div>
+              <div class="mock-row pending"><span class="status-dot"></span><span class="name">Ирина Алексеева</span><span class="amount">12 000 ₽</span><span class="meta">2 дн</span></div>
+              <div class="mock-row paid"><span class="status-dot"></span><span class="name">Студия Метрика</span><span class="amount">48 000 ₽</span><span class="meta">оплачено</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<template id="hero-v3">
+  <div class="ab">
+    <div class="hero-header">
+      <div class="nav">
+        <a href="#" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg></span>
+          Payment Tracker
+        </a>
+        <div class="nav-links">
+          <a href="#">Возможности</a>
+          <a href="#">Как работает</a>
+          <a href="#">Тарифы</a>
+          <a href="#">Вопросы</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#" class="btn btn-ghost">Войти</a>
+          <a href="#" class="btn btn-primary">Начать</a>
+        </div>
+      </div>
+    </div>
+    <section class="hero-section v3">
+      <div class="hero-inner">
+        <span class="eyebrow"><span class="dot"></span> Beta · 14 дней бесплатно</span>
+        <h1>Платежи под контролем.<br><span class="accent-coral">Никаких напоминалок в блокноте.</span></h1>
+        <p class="hero-sub">Payment Tracker — CRM для агентств, где видно каждого клиента, каждую оплату и каждое напоминание. Без интеграций с банком, без «приготовьте отчёт».</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-primary btn-lg">Начать бесплатно →</a>
+          <a href="#" class="btn btn-ghost btn-lg">Демо · 2 мин</a>
+        </div>
+        <div class="trust">
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Без карты</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Уведомления в Telegram</span>
+          <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Отмена в один клик</span>
+        </div>
+        <div class="preview-strip">
+          <div class="preview-card"><span class="pl">Клиентов</span><span class="pv" style="color:#0f172a">42</span></div>
+          <div class="preview-card blue"><span class="pl">Ожидается</span><span class="pv">128 400 ₽</span></div>
+          <div class="preview-card coral"><span class="pl">Просрочено</span><span class="pv">15 000 ₽</span></div>
+          <div class="preview-card dark"><span class="pl">За месяц</span><span class="pv">+24%</span></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<template id="hero-v4">
+  <div class="ab">
+    <div class="hero-header">
+      <div class="nav">
+        <a href="#" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 64 64"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg></span>
+          Payment Tracker
+        </a>
+        <div class="nav-links">
+          <a href="#">Возможности</a>
+          <a href="#">Как работает</a>
+          <a href="#">Тарифы</a>
+          <a href="#">Вопросы</a>
+        </div>
+        <div class="nav-actions">
+          <a href="#" class="btn btn-ghost">Войти</a>
+          <a href="#" class="btn btn-primary">Начать</a>
+        </div>
+      </div>
+    </div>
+    <section class="hero-section v4">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Для агентств и фрилансеров</span>
+          <h1>Кто должен заплатить вам <span class="accent-coral">сегодня?</span></h1>
+          <p class="hero-sub">Payment Tracker отвечает на этот вопрос за две секунды. Списки клиентов, периодические оплаты, напоминания в Telegram — всё в одном месте.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-coral btn-lg">Попробовать бесплатно</a>
+            <a href="#" class="btn btn-ghost btn-lg">Как работает →</a>
+          </div>
+          <div class="trust">
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>14 дней Pro</span>
+            <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Без карты</span>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="coral-burst">−3 дн</div>
+          <div class="stack-card c1">
+            <div class="ch"><span>Сегодня</span><span class="pill paid">Оплачено</span></div>
+            <div class="nm">Ирина Алексеева</div>
+            <div class="am">12 000 ₽</div>
+          </div>
+          <div class="stack-card c2">
+            <div class="ch"><span>Завтра</span><span class="pill pend">Ожидается</span></div>
+            <div class="nm">Студия Метрика</div>
+            <div class="am">48 000 ₽</div>
+          </div>
+          <div class="stack-card c3">
+            <div class="ch"><span style="color:var(--red-600);font-weight:700">Просрочено</span><span class="pill over">−3 дн</span></div>
+            <div class="nm">ООО «Светлый»</div>
+            <div class="am">35 000 ₽</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { DesignCanvas, DCSection, DCArtboard } = window;
+
+function FromTemplate({id}){
+  const ref = React.useRef(null);
+  React.useEffect(()=>{
+    const t = document.getElementById(id);
+    if(t && ref.current){
+      ref.current.innerHTML = '';
+      ref.current.appendChild(t.content.cloneNode(true));
+    }
+  },[id]);
+  return <div ref={ref} />;
+}
+
+function App(){
+  return (
+    <DesignCanvas title="Hero — варианты" subtitle="4 направления первого экрана с финальным логотипом и шапкой">
+      <DCSection id="heroes" title="Hero">
+        <DCArtboard id="v1" label="01 · Текущий — Slate + продуктовый мок" width={1280} height={760}>
+          <FromTemplate id="hero-v1"/>
+        </DCArtboard>
+        <DCArtboard id="v2" label="02 · Тёмный · контрастный" width={1280} height={760}>
+          <FromTemplate id="hero-v2"/>
+        </DCArtboard>
+        <DCArtboard id="v3" label="03 · Центр + крупная типографика + цветная сетка" width={1280} height={900}>
+          <FromTemplate id="hero-v3"/>
+        </DCArtboard>
+        <DCArtboard id="v4" label="04 · Стопка карточек + коралловый акцент" width={1280} height={760}>
+          <FromTemplate id="hero-v4"/>
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Логотип · варианты</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-200:#bfdbfe;--blue-300:#93c5fd;
+    --blue-400:#60a5fa;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;
+    --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-400:#94a3b8;
+    --slate-500:#64748b;--slate-600:#475569;--slate-700:#334155;--slate-900:#0f172a;
+  }
+  html,body{font-family:'Inter',system-ui,sans-serif;background:var(--slate-50);color:var(--slate-900);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:48px 24px 80px}
+  header{margin-bottom:40px}
+  h1{font-size:28px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px}
+  .sub{color:var(--slate-500);font-size:14px;max-width:640px;line-height:1.5}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+
+  .card{background:#fff;border:1px solid var(--slate-200);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+
+  .preview{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:var(--slate-50);position:relative}
+  .preview svg{width:96px;height:96px;display:block}
+
+  .sizes{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#fff;border-top:1px solid var(--slate-100)}
+  .sizes svg{display:block}
+  .size-lg{width:40px;height:40px}
+  .size-md{width:28px;height:28px}
+  .size-sm{width:20px;height:20px}
+  .size-xs{width:16px;height:16px}
+
+  .meta{padding:14px 16px 16px;border-top:1px solid var(--slate-100)}
+  .name{font-size:13px;font-weight:600;color:var(--slate-900)}
+  .desc{font-size:12px;color:var(--slate-500);margin-top:3px;line-height:1.5}
+
+  .header-sim{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--slate-900);color:#fff;font-size:13px;font-weight:600;border-top:1px solid var(--slate-100)}
+  .header-sim svg{width:28px;height:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Логотип — 9 направлений</h1>
+    <p class="sub">Только иконка-марка, синий #2563eb, дружелюбный SaaS. Мотивы: статистика, рост, учёт, люди/агентство. Каждая карточка показывает иконку в 4 размерах и на тёмном фоне — чтобы оценить читаемость в шапке.</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- 1. Bar chart card -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="10" width="52" height="44" rx="12" fill="#2563eb"/>
+          <rect x="16" y="34" width="7" height="12" rx="2" fill="#fff" opacity=".55"/>
+          <rect x="28.5" y="26" width="7" height="20" rx="2" fill="#fff" opacity=".8"/>
+          <rect x="41" y="18" width="7" height="28" rx="2" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l1"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l1"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">1 · Карточка с гистограммой</div>
+        <div class="desc">Три столбика роста в скруглённой карточке. Прямо считывается «учёт + статистика».</div>
+      </div>
+    </div>
+
+    <!-- 2. Three circles (agency = people) with dot growth -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l2" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#eff6ff"/>
+          <circle cx="20" cy="26" r="7" fill="#93c5fd"/>
+          <circle cx="32" cy="22" r="7" fill="#3b82f6"/>
+          <circle cx="44" cy="26" r="7" fill="#2563eb"/>
+          <path d="M14 46c0-6 5-10 11-10h14c6 0 11 4 11 10v4H14v-4z" fill="#2563eb"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l2"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l2"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">2 · Команда (агентство)</div>
+        <div class="desc">Три фигуры разного оттенка синего. Метафора агентства и клиентской базы.</div>
+      </div>
+    </div>
+
+    <!-- 3. Upward line chart with node -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l3" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#2563eb"/>
+          <path d="M12 44l10-8 8 5 10-14 12 9" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="52" cy="36" r="4.5" fill="#fff"/>
+          <circle cx="52" cy="36" r="2" fill="#2563eb"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l3"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l3"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">3 · Линия роста</div>
+        <div class="desc">Узнаваемая метафора роста выручки. Энергичная, но читается на 16px.</div>
+      </div>
+    </div>
+
+    <!-- 4. Donut / pie with slice = share -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l4" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#eff6ff"/>
+          <circle cx="32" cy="32" r="18" fill="none" stroke="#bfdbfe" stroke-width="8"/>
+          <path d="M32 14a18 18 0 0 1 15.6 9l-15.6 9z" fill="#2563eb"/>
+          <circle cx="32" cy="32" r="6" fill="#fff"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l4"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l4"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">4 · Долевая диаграмма</div>
+        <div class="desc">Пончик со срезом — «доля клиентов, которые заплатили». Спокойный, аналитический.</div>
+      </div>
+    </div>
+
+    <!-- 5. Stacked cards (clients) with bar -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l5" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#2563eb"/>
+          <rect x="12" y="18" width="32" height="22" rx="5" fill="#fff" opacity=".35"/>
+          <rect x="17" y="24" width="32" height="22" rx="5" fill="#fff" opacity=".65"/>
+          <rect x="22" y="30" width="32" height="22" rx="5" fill="#fff"/>
+          <rect x="28" y="37" width="12" height="3" rx="1.5" fill="#2563eb"/>
+          <rect x="28" y="43" width="20" height="3" rx="1.5" fill="#93c5fd"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l5"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l5"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">5 · Стопка карточек клиентов</div>
+        <div class="desc">Клиентская база как стопка карточек. Узнаваемо для CRM, но не избито.</div>
+      </div>
+    </div>
+
+    <!-- 6. Circular progress + check -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l6" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#eff6ff"/>
+          <circle cx="32" cy="32" r="18" fill="none" stroke="#dbeafe" stroke-width="6"/>
+          <path d="M32 14a18 18 0 0 1 12.7 30.7" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+          <path d="M25 32l5 5 10-10" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l6"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l6"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">6 · Прогресс + галочка</div>
+        <div class="desc">Круговой прогресс с чекмарком — «отслеживание + выполнено». Оптимистичная.</div>
+      </div>
+    </div>
+
+    <!-- 7. Three dots timeline (tracking over time) -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l7" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#2563eb"/>
+          <path d="M14 32h36" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+          <circle cx="16" cy="32" r="5" fill="#fff" opacity=".55"/>
+          <circle cx="32" cy="32" r="5" fill="#fff" opacity=".8"/>
+          <circle cx="48" cy="32" r="7" fill="#fff"/>
+          <path d="M45 32l2.5 2.5L51 30" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l7"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l7"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">7 · Таймлайн циклов</div>
+        <div class="desc">Три контрольные точки: прошлый платёж, текущий, ожидаемый. Идеально отражает суть сервиса.</div>
+      </div>
+    </div>
+
+    <!-- 8. Abstract: overlapping circles (people + chart hybrid) -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l8" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#fff" stroke="#dbeafe" stroke-width="2"/>
+          <circle cx="24" cy="28" r="12" fill="#2563eb" opacity=".85"/>
+          <circle cx="40" cy="28" r="12" fill="#60a5fa" opacity=".85" style="mix-blend-mode:multiply"/>
+          <rect x="22" y="42" width="5" height="10" rx="1.5" fill="#2563eb"/>
+          <rect x="30" y="38" width="5" height="14" rx="1.5" fill="#2563eb"/>
+          <rect x="38" y="34" width="5" height="18" rx="1.5" fill="#2563eb"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l8"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l8"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">8 · Клиенты + статистика</div>
+        <div class="desc">Два пересекающихся круга (агентство + клиенты) над гистограммой. Богаче смыслом, но сложнее на 16px.</div>
+      </div>
+    </div>
+
+    <!-- 9. Abstract monogram: spiral of dots forming growth -->
+    <div class="card">
+      <div class="preview">
+        <svg id="l9" viewBox="0 0 64 64">
+          <rect width="64" height="64" rx="14" fill="#eff6ff"/>
+          <circle cx="18" cy="46" r="4" fill="#bfdbfe"/>
+          <circle cx="28" cy="40" r="4.5" fill="#93c5fd"/>
+          <circle cx="38" cy="32" r="5" fill="#3b82f6"/>
+          <circle cx="46" cy="22" r="6" fill="#2563eb"/>
+          <path d="M18 46L28 40L38 32L46 22" stroke="#2563eb" stroke-width="2" stroke-linecap="round" opacity=".35" fill="none"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#l9"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#l9"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#l9"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#l9"/></svg>
+      </div>
+      <div class="header-sim">
+        <svg viewBox="0 0 64 64"><use href="#l9"/></svg>
+        <span>Payment Tracker</span>
+      </div>
+      <div class="meta">
+        <div class="name">9 · Растущие точки</div>
+        <div class="desc">Абстрактная лесенка точек-данных растущего размера. Мягкая, friendly, отлично работает на маленьких размерах.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

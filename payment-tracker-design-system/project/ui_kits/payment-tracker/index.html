@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Payment Tracker · UI Kit</title>
+  <link rel="stylesheet" href="kit.css">
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="Primitives.jsx"></script>
+  <script type="text/babel" src="Sidebar.jsx"></script>
+  <script type="text/babel" src="LoginScreen.jsx"></script>
+  <script type="text/babel" src="PaymentsPage.jsx"></script>
+  <script type="text/babel" src="ClientsPage.jsx"></script>
+  <script type="text/babel" src="StatsPage.jsx"></script>
+  <script type="text/babel" src="SettingsPage.jsx"></script>
+  <script type="text/babel">
+    function App() {
+      const [authed, setAuthed] = React.useState(true);
+      const [page, setPage] = React.useState('payments');
+      const [clients, setClients] = React.useState(SEED_CLIENTS);
+      const [addOpen, setAddOpen] = React.useState(false);
+      const [confirmPaid, setConfirmPaid] = React.useState(null);
+      const [toast, setToast] = React.useState(null);
+
+      const user = { name:'Дмитрий Лебедев', email:'d.lebedev@agency.ru' };
+
+      const markPaid = (client) => {
+        setClients(cs => cs.map(c => c.id===client.id ? {...c, nextStatus:'paid', status: c.freq==='once'?'completed':c.status} : c));
+        setToast('Платёж отмечен как оплаченный');
+        setConfirmPaid(null);
+      };
+      const addClient = (form) => {
+        const newC = {
+          id: Date.now(),
+          name: form.name, contact: form.contact, phone: form.phone,
+          amount: +form.amount, freq: form.freq, status:'active',
+          nextDate: form.nextDate, nextStatus:'pending', daysDue: 14,
+        };
+        setClients(cs => [newC, ...cs]);
+        setAddOpen(false);
+        setToast('Клиент добавлен');
+      };
+
+      if (!authed) return <LoginScreen onLogin={()=>setAuthed(true)} />;
+
+      return (
+        <div className="app">
+          <Sidebar current={page} onNavigate={setPage} onLogout={()=>setAuthed(false)} user={user} />
+          <main className="main">
+            {page==='payments' && <PaymentsPage clients={clients} onMarkPaid={(c)=>setConfirmPaid(c)} onAddClient={()=>setAddOpen(true)} />}
+            {page==='clients'  && <ClientsPage clients={clients} onOpen={()=>{}} onAdd={()=>setAddOpen(true)} />}
+            {page==='stats'    && <StatsPage clients={clients} />}
+            {page==='settings' && <SettingsPage />}
+          </main>
+          <AddClientDialog open={addOpen} onClose={()=>setAddOpen(false)} onSave={addClient} />
+          <Dialog
+            open={!!confirmPaid}
+            onClose={()=>setConfirmPaid(null)}
+            title="Отметить платёж?"
+            actions={[
+              <Button key="c" variant="ghost" onClick={()=>setConfirmPaid(null)} style={{flex:1}}>Отмена</Button>,
+              <Button key="ok" onClick={()=>markPaid(confirmPaid)} style={{flex:1}}>Подтвердить</Button>,
+            ]}
+          >
+            {confirmPaid && <p>Отметить платёж от <b>{confirmPaid.name}</b> на сумму <b>{formatRub(confirmPaid.amount)}</b> как полученный?</p>}
+          </Dialog>
+          <Toast message={toast} onDismiss={()=>setToast(null)} />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

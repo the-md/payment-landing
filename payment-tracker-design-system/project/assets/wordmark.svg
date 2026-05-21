@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="40" viewBox="0 0 240 40" fill="none">
+  <rect x="0" y="4" width="32" height="32" rx="8" fill="#dbeafe"></rect>
+  <path d="M16 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M16 14v-1m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 18a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z" stroke="#2563eb" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 4)"></path>
+  <text x="42" y="26" font-family="Inter, sans-serif" font-size="17" font-weight="700" fill="#0f172a">Payment Tracker</text>
+</svg>

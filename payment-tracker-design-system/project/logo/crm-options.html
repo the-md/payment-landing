@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>CRM для агентств · концепты лого</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#0b0f19;
+    --blue-50:#eff6ff;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;--blue-900:#1e3a8a;
+    --slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-400:#94a3b8;--slate-500:#64748b;--slate-900:#0f172a;
+    --coral:#ff6b4a;--lime:#c4f542;--violet:#8b5cf6;--amber:#f59e0b;--teal:#14b8a6;--pink:#ec4899;
+  }
+  html,body{font-family:'Inter',system-ui,sans-serif;background:#fafaf9;color:var(--slate-900);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1280px;margin:0 auto;padding:48px 24px 80px}
+  header{margin-bottom:40px}
+  h1{font-size:28px;font-weight:700;letter-spacing:-0.01em;margin-bottom:8px}
+  .sub{color:var(--slate-500);font-size:14px;max-width:720px;line-height:1.55}
+  .sub b{color:var(--slate-900)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+  .card{background:#fff;border:1px solid var(--slate-200);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+
+  .hero-prev{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--slate-100);position:relative;overflow:hidden}
+  .hero-prev::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,var(--slate-100) 1px,transparent 1px);background-size:16px 16px;opacity:.5}
+  .hero-prev svg{position:relative;width:144px;height:144px;display:block}
+
+  .sizes{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--slate-100);border-bottom:1px solid var(--slate-200)}
+  .sizes svg{display:block}
+  .size-lg{width:48px;height:48px}.size-md{width:32px;height:32px}.size-sm{width:20px;height:20px}.size-xs{width:14px;height:14px}
+  .sizes .spacer{flex:1}
+  .sizes .label{font-size:10px;font-weight:600;color:var(--slate-400);text-transform:uppercase;letter-spacing:0.06em}
+
+  .header-strip{display:grid;grid-template-columns:1fr 1fr}
+  .header-cell{padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:-0.01em}
+  .header-cell svg{width:28px;height:28px;flex-shrink:0}
+  .h-dark{background:var(--ink);color:#fff}
+  .h-light{background:#fff;color:var(--ink);border-left:1px solid var(--slate-100)}
+
+  .meta{padding:16px 18px 18px;border-top:1px solid var(--slate-100)}
+  .badge{display:inline-block;font-size:10px;font-weight:700;color:var(--blue-600);background:var(--blue-50);padding:3px 8px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:8px}
+  .product-name{font-family:inherit}
+  .name{font-size:15px;font-weight:700;margin-bottom:4px}
+  .desc{font-size:13px;color:var(--slate-500);line-height:1.55}
+
+  /* Wordmark composite for a couple */
+  .wmark{display:flex;align-items:center;gap:12px}
+  .wmark .word{font-size:40px;font-weight:700;letter-spacing:-0.035em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>CRM для агентств · 8 концептов</h1>
+    <p class="sub">Семантика: <b>клиенты, сделки, pipeline, проекты, команда, агентство</b>. Mood — характерный SaaS с индивидуальностью (Mercury / Ramp / Pitch / Linear). У каждой марки — своя пластика, ни одна не выглядит «из MUI».</p>
+  </header>
+
+  <div class="grid">
+
+    <!-- 1. Relay — две формы, передающие друг другу сделку -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 20 a14 14 0 0 1 14 -14 h4 v28 h-4 a14 14 0 0 1 -14 -14z" fill="#2563eb"/>
+          <path d="M54 44 a14 14 0 0 1 -14 14 h-4 v-28 h4 a14 14 0 0 1 14 14z" fill="#0b0f19"/>
+          <circle cx="32" cy="32" r="6" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m1"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m1"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m1"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m1"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m1"/></svg><span>Relay</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m1"/></svg><span>Relay</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Pipeline</span>
+        <div class="name">01 · Relay</div>
+        <div class="desc">Две полу-формы передают друг другу «сделку» (коралловая точка). Читается как воронка и как handoff внутри агентства.</div>
+      </div>
+    </div>
+
+    <!-- 2. Pitch — стрелка/клин в блоке -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m2" viewBox="0 0 64 64">
+          <rect x="6" y="6" width="52" height="52" rx="12" fill="#0b0f19"/>
+          <path d="M18 22h18l10 10-10 10H18z" fill="#c4f542"/>
+          <circle cx="46" cy="32" r="3" fill="#0b0f19"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m2"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m2"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m2"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m2"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m2"/></svg><span>Pitch</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m2"/></svg><span>Pitch</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Deal flow</span>
+        <div class="name">02 · Nail</div>
+        <div class="desc">Остриё-клин как «pitch», «закрыть сделку». Тёмная марка + ядовитый лайм — дерзко, запоминается силуэтом.</div>
+      </div>
+    </div>
+
+    <!-- 3. Orbit — клиенты вокруг агентства -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m3" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+          <circle cx="32" cy="32" r="14" fill="#2563eb"/>
+          <circle cx="32" cy="32" r="4" fill="#fff"/>
+          <circle cx="14" cy="20" r="4" fill="#ff6b4a"/>
+          <circle cx="54" cy="28" r="3" fill="#8b5cf6"/>
+          <circle cx="46" cy="54" r="3.5" fill="#14b8a6"/>
+          <circle cx="12" cy="46" r="3" fill="#f59e0b"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m3"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m3"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m3"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m3"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m3"/></svg><span>Orbit</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m3"/></svg><span>Orbit</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Клиенты вокруг</span>
+        <div class="name">03 · Orbit</div>
+        <div class="desc">Агентство в центре — клиенты на орбите. Разные цветные точки = разные проекты. Пригодится в продуктовой иконографии.</div>
+      </div>
+    </div>
+
+    <!-- 4. Kanban/Pipeline — три скошенные карточки -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m4" viewBox="0 0 64 64">
+          <rect x="8"  y="18" width="14" height="28" rx="4" fill="#dbeafe"/>
+          <rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/>
+          <rect x="42" y="20" width="14" height="26" rx="4" fill="#0b0f19"/>
+          <circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m4"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m4"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m4"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m4"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m4"/></svg><span>Stages</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m4"/></svg><span>Stages</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Kanban</span>
+        <div class="name">04 · Stages</div>
+        <div class="desc">Три канбан-столбика разной высоты — самая буквальная метафора CRM. Характер держит чёрный блок + акцентная точка.</div>
+      </div>
+    </div>
+
+    <!-- 5. Forge — наковальня + буква F; «сковано в агентстве» -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m5" viewBox="0 0 64 64">
+          <rect x="6" y="6" width="52" height="52" rx="14" fill="#ff6b4a"/>
+          <!-- custom F letterform with CRM axis -->
+          <path d="M20 14 H 50 V 22 H 28 V 30 H 44 V 38 H 28 V 50 H 20 Z" fill="#0b0f19"/>
+          <circle cx="44" cy="30" r="3" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m5"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m5"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m5"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m5"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m5"/></svg><span>Forge</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m5"/></svg><span>Forge</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Монограмма</span>
+        <div class="name">05 · Forge</div>
+        <div class="desc">Кастомная «F» с пропилом-осью = CRM-колонки. Коралловый фон + чёрная буква — уверенный характер, Ramp/Mercury-территория.</div>
+      </div>
+    </div>
+
+    <!-- 6. Nest — вложенные скобки/«агентство обнимает клиента» -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m6" viewBox="0 0 64 64">
+          <path d="M10 10 v44 h10 v-36 h24 v-8 z" fill="#2563eb"/>
+          <path d="M54 54 v-44 h-10 v36 h-24 v8 z" fill="#1e3a8a"/>
+          <circle cx="32" cy="32" r="6" fill="#c4f542"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m6"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m6"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m6"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m6"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m6"/></svg><span>Nest</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m6"/></svg><span>Nest</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Brackets</span>
+        <div class="name">06 · Nest</div>
+        <div class="desc">Две «скобки» держат клиента в центре. CRM как структура, где всё на своём месте. Графично, хорошо работает в фавиконе.</div>
+      </div>
+    </div>
+
+    <!-- 7. Funnel — характерная воронка -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m7" viewBox="0 0 64 64">
+          <!-- stylised funnel built of overlapping trapezoids -->
+          <path d="M8 10 h48 l-10 14 h-28 z" fill="#2563eb"/>
+          <path d="M18 26 h28 l-8 12 h-12 z" fill="#3b82f6"/>
+          <path d="M26 40 h12 l-2 14 h-8 z" fill="#0b0f19"/>
+          <circle cx="32" cy="50" r="3" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m7"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m7"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m7"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m7"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m7"/></svg><span>Drop</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m7"/></svg><span>Drop</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Funnel</span>
+        <div class="name">07 · Drop</div>
+        <div class="desc">Воронка разбита на три геометрических блока — стадии воронки. Прямолинейно, но с резкой пластикой вместо стоковой иконки.</div>
+      </div>
+    </div>
+
+    <!-- 8. Pin — geo-карточка клиента, «вести клиента» -->
+    <div class="card">
+      <div class="hero-prev">
+        <svg id="m8" viewBox="0 0 64 64">
+          <!-- Custom pin/card hybrid -->
+          <path d="M32 6
+                   C 18 6 8 16 8 30
+                   C 8 44 20 50 28 58
+                   L 32 62 L 36 58
+                   C 44 50 56 44 56 30
+                   C 56 16 46 6 32 6 Z" fill="#2563eb"/>
+          <rect x="18" y="22" width="28" height="16" rx="3" fill="#fff"/>
+          <rect x="22" y="26" width="14" height="3" rx="1.5" fill="#2563eb"/>
+          <rect x="22" y="32" width="20" height="3" rx="1.5" fill="#cbd5e1"/>
+          <circle cx="44" cy="20" r="5" fill="#ff6b4a"/>
+        </svg>
+      </div>
+      <div class="sizes">
+        <svg class="size-lg" viewBox="0 0 64 64"><use href="#m8"/></svg>
+        <svg class="size-md" viewBox="0 0 64 64"><use href="#m8"/></svg>
+        <svg class="size-sm" viewBox="0 0 64 64"><use href="#m8"/></svg>
+        <svg class="size-xs" viewBox="0 0 64 64"><use href="#m8"/></svg>
+        <span class="spacer"></span><span class="label">48 · 32 · 20 · 14</span>
+      </div>
+      <div class="header-strip">
+        <div class="header-cell h-dark"><svg viewBox="0 0 64 64"><use href="#m8"/></svg><span>Pinned</span></div>
+        <div class="header-cell h-light"><svg viewBox="0 0 64 64"><use href="#m8"/></svg><span>Pinned</span></div>
+      </div>
+      <div class="meta">
+        <span class="badge">Client card</span>
+        <div class="name">08 · Pinned</div>
+        <div class="desc">Гибрид пина и клиентской карточки. «Ведём клиента», «все контакты в одном месте». Немного сложнее на 14px, но на 32+ — отлично.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

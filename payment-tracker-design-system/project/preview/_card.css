@@ -1,0 +1,86 @@
+/* Shared card harness for design-system preview cards.
+   Each card renders at ~700px wide (flex height). Tailwind classes are
+   approximated via utility-like styles here so the cards stay self-contained. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  background: #fff;
+  color: var(--fg1);
+  padding: 20px;
+}
+
+.row { display: flex; gap: 12px; align-items: center; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+.grow { flex: 1; }
+.w-full { width: 100%; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: var(--fg4); }
+
+/* swatches */
+.swatch-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.swatch-col { display: flex; flex-direction: column; gap: 2px; }
+.swatch-chip {
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.swatch-label { font-size: 10px; font-weight: 600; color: var(--fg1); letter-spacing: 0.02em; }
+.swatch-hex { font-size: 10px; color: var(--fg4); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* tokens */
+.token-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; border-radius: 8px;
+  background: var(--slate-50);
+  font-size: 13px;
+}
+.token-name { font-weight: 600; color: var(--fg1); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.token-val  { color: var(--fg4); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+
+/* type specimen */
+.specimen {
+  display: grid; grid-template-columns: 140px 1fr; gap: 8px 24px; align-items: baseline;
+}
+.specimen-meta { font-size: 11px; color: var(--fg4); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; padding-top: 6px; }
+
+/* component demos */
+.demo-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; border-radius: 8px; padding: 8px 16px; font-size: 14px; font-weight: 600;
+  border: 0; cursor: pointer; transition: background-color .15s ease;
+  min-height: 36px;
+  font-family: inherit;
+}
+.demo-btn.primary  { background: var(--blue-600); color: #fff; }
+.demo-btn.primary:hover { background: var(--blue-700); }
+.demo-btn.ghost    { background: #fff; color: var(--fg3); border: 1px solid var(--border-default); }
+.demo-btn.ghost:hover { background: var(--slate-50); }
+.demo-btn.danger   { background: var(--red-600); color: #fff; }
+.demo-btn.danger:hover  { background: var(--red-700); }
+.demo-btn.sm { padding: 6px 12px; font-size: 12px; min-height: 30px; }
+.demo-btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+.demo-card {
+  border-radius: 12px; border: 1px solid var(--border-default); background: #fff;
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  border: 1px solid transparent;
+}
+.badge.active    { color: var(--green-700); background: var(--green-50);  border-color: var(--green-200); }
+.badge.paused    { color: var(--yellow-700); background: var(--yellow-50); border-color: var(--yellow-200); }
+.badge.completed { color: var(--slate-500); background: var(--slate-50); border-color: var(--slate-200); }
+.badge.overdue   { color: var(--red-600); background: var(--red-50); border-color: var(--red-100); }
+.badge.paid      { color: var(--green-700); background: var(--green-50); border-color: var(--green-100); }
+.badge.pending   { color: var(--yellow-700); background: var(--yellow-50); border-color: var(--yellow-100); }
+
+.dot { width: 8px; height: 8px; border-radius: 999px; display: inline-block; }
+.dot.paid { background: var(--green-500); }
+.dot.pending { background: var(--yellow-400); }
+.dot.overdue { background: var(--red-500); }

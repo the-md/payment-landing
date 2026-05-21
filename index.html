@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Agency Payment Tracker — контроль оплат и отчётности для маркетинговых агентств</title>
+  <meta name="description" content="Единый дашборд платежей клиентов, авто-просрочка, Telegram-уведомления, финансовые отчёты по рекламе, автоимпорт из ВК Рекламы и Яндекс.Директ. Сервис для директора агентства и его команды.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-300:#cbd5e1;
+      --slate-400:#94a3b8;--slate-500:#64748b;--slate-600:#475569;--slate-700:#334155;
+      --slate-800:#1e293b;--slate-900:#0f172a;
+      --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;
+      --red-500:#ef4444;--red-600:#dc2626;
+      --yellow-400:#facc15;--yellow-500:#eab308;--yellow-700:#a16207;
+      --green-500:#22c55e;--green-600:#16a34a;--green-700:#15803d;
+    }
+    html,body{font-family:'Inter',-apple-system,system-ui,sans-serif;color:var(--slate-900);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit;cursor:pointer;border:0;background:transparent}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;padding:12px 20px;font-size:14px;font-weight:600;transition:background-color .15s,color .15s,border-color .15s;min-height:44px}
+    .btn-primary{background:var(--blue-600);color:#fff}
+    .btn-primary:hover{background:var(--blue-700)}
+    .btn-ghost{background:#fff;color:var(--slate-700);border:1px solid var(--slate-200)}
+    .btn-ghost:hover{background:var(--slate-50)}
+    .btn-lg{padding:14px 24px;font-size:15px;min-height:52px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--slate-100)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+    .brand-mark{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+    .brand-mark svg{width:32px;height:32px;display:block}
+    .nav-links{display:none;gap:28px;align-items:center;font-size:14px;color:var(--slate-600);font-weight:500}
+    .nav-links a:hover{color:var(--slate-900)}
+    .nav-actions{display:flex;gap:8px;align-items:center}
+    @media(min-width:768px){.nav-links{display:flex}}
+
+    /* Hero */
+    .hero{padding:72px 0 80px;background:var(--slate-50);border-bottom:1px solid var(--slate-100);position:relative;overflow:hidden}
+    .hero-inner{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;position:relative;z-index:1}
+    @media(min-width:1024px){.hero{padding:96px 0 112px}.hero-inner{grid-template-columns:1.1fr 1fr;gap:64px}}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--slate-200);font-size:12px;font-weight:600;color:var(--slate-600);margin-bottom:20px}
+    .eyebrow .dot{width:6px;height:6px;border-radius:999px;background:var(--green-500);animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    h1{font-size:40px;font-weight:800;letter-spacing:-0.02em;line-height:1.1;color:var(--slate-900);margin-bottom:20px;text-wrap:balance}
+    @media(min-width:768px){h1{font-size:56px}}
+    .hero-sub{font-size:18px;color:var(--slate-600);margin-bottom:32px;max-width:560px;text-wrap:pretty}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+    .trust{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--slate-500);flex-wrap:wrap}
+    .trust-item{display:inline-flex;align-items:center;gap:6px}
+    .trust-item svg{width:14px;height:14px;color:var(--green-600)}
+
+    /* Hero mock */
+    .hero-mock{position:relative}
+    .mock-window{background:#fff;border:1px solid var(--slate-200);border-radius:16px;overflow:hidden;box-shadow:0 25px 50px -12px rgba(15,23,42,.15),0 0 0 1px rgba(15,23,42,.02)}
+    .mock-header{padding:10px 14px;border-bottom:1px solid var(--slate-100);display:flex;align-items:center;gap:6px}
+    .mock-header .dot-mac{width:10px;height:10px;border-radius:999px;background:var(--slate-200)}
+    .mock-body{padding:18px}
+    .mock-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+    .mock-stat{padding:12px;border-radius:10px;border:1px solid}
+    .mock-stat .lbl{font-size:10px;font-weight:600;color:var(--slate-600)}
+    .mock-stat .val{font-size:17px;font-weight:700;margin-top:2px;font-variant-numeric:tabular-nums}
+    .mock-stat.blue{background:var(--blue-50);border-color:var(--blue-100)}
+    .mock-stat.blue .val{color:var(--blue-700)}
+    .mock-stat.yellow{background:#fefce8;border-color:#fef9c3}
+    .mock-stat.yellow .val{color:var(--yellow-700)}
+    .mock-stat.red{background:#fef2f2;border-color:#fee2e2}
+    .mock-stat.red .val{color:var(--red-600)}
+    .mock-list{border:1px solid var(--slate-200);border-radius:10px;overflow:hidden}
+    .mock-row{padding:12px 14px;display:flex;align-items:center;gap:10px;border-left:3px solid;font-size:12px}
+    .mock-row + .mock-row{border-top:1px solid var(--slate-100)}
+    .mock-row.overdue{border-left-color:#f87171}
+    .mock-row.pending{border-left-color:var(--yellow-400)}
+    .mock-row .status-dot{width:8px;height:8px;border-radius:999px;flex-shrink:0}
+    .mock-row.overdue .status-dot{background:var(--red-500)}
+    .mock-row.pending .status-dot{background:var(--yellow-400)}
+    .mock-row .name{flex:1;font-weight:600;color:var(--slate-900);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .mock-row .amount{font-weight:600;font-variant-numeric:tabular-nums}
+    .mock-row .meta{font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px}
+    .mock-row.overdue .meta{color:var(--red-600);background:#fef2f2}
+    .mock-row.pending .meta{color:var(--yellow-700);background:#fefce8}
+
+    /* Sections */
+    section{padding:96px 0}
+    .section-head{max-width:680px;margin:0 auto 56px;text-align:center}
+    .section-eyebrow{font-size:13px;font-weight:700;color:var(--blue-600);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+    h2{font-size:36px;font-weight:700;letter-spacing:-0.01em;line-height:1.15;color:var(--slate-900);margin-bottom:14px;text-wrap:balance}
+    @media(min-width:768px){h2{font-size:44px}}
+    .section-sub{font-size:17px;color:var(--slate-600);text-wrap:pretty}
+
+    /* Features grid */
+    .features{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:640px){.features{grid-template-columns:1fr 1fr}}
+    @media(min-width:1024px){.features{grid-template-columns:repeat(3,1fr)}}
+    .feature{background:#fff;border:1px solid var(--slate-200);border-radius:16px;padding:28px}
+    .feature-icon{width:48px;height:48px;border-radius:12px;background:var(--blue-50);color:var(--blue-600);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    .feature-icon svg{width:22px;height:22px}
+    .feature h3{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--slate-900)}
+    .feature p{font-size:14px;color:var(--slate-600);line-height:1.6}
+
+    /* How it works */
+    .how{background:var(--slate-50);border-top:1px solid var(--slate-100);border-bottom:1px solid var(--slate-100)}
+    .steps{display:grid;grid-template-columns:1fr;gap:32px;max-width:920px;margin:0 auto}
+    @media(min-width:768px){.steps{grid-template-columns:repeat(3,1fr);gap:40px}}
+    .step{position:relative}
+    .step-num{width:36px;height:36px;border-radius:999px;background:var(--blue-600);color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    .step h3{font-size:18px;font-weight:600;margin-bottom:8px}
+    .step p{font-size:14px;color:var(--slate-600)}
+
+    /* Pricing */
+    .plans{display:grid;grid-template-columns:1fr;gap:20px;max-width:1100px;margin:0 auto}
+    @media(min-width:768px){.plans{grid-template-columns:repeat(3,1fr)}}
+    .plan{background:#fff;border:1px solid var(--slate-200);border-radius:16px;padding:32px;display:flex;flex-direction:column}
+    .plan.featured{border-color:var(--blue-600);box-shadow:0 0 0 1px var(--blue-600);position:relative}
+    .plan-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--blue-600);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase}
+    .plan-name{font-size:15px;font-weight:700;color:var(--slate-900);margin-bottom:6px}
+    .plan-tagline{font-size:13px;color:var(--slate-500);margin-bottom:20px}
+    .plan-price{display:flex;align-items:baseline;gap:6px;margin-bottom:8px}
+    .plan-price .num{font-size:44px;font-weight:800;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+    .plan-price .per{color:var(--slate-500);font-size:14px}
+    .plan-price-yearly{font-size:13px;color:var(--slate-500);margin-bottom:24px;font-variant-numeric:tabular-nums}
+    .plan-price-spacer{margin-bottom:24px}
+    .plan-features{list-style:none;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--slate-700)}
+    .plan-features svg{width:18px;height:18px;color:var(--green-600);flex-shrink:0;margin-top:1px}
+
+    /* FAQ */
+    .faq{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+    .faq-item{background:#fff;border:1px solid var(--slate-200);border-radius:12px;overflow:hidden}
+    .faq-q{width:100%;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font-size:15px;font-weight:600;color:var(--slate-900);cursor:pointer;list-style:none}
+    .faq-q::-webkit-details-marker{display:none}
+    .faq-q svg{width:18px;height:18px;color:var(--slate-400);transition:transform .2s;flex-shrink:0}
+    .faq-item[open] .faq-q svg{transform:rotate(180deg)}
+    .faq-a{padding:0 22px 18px;font-size:14px;color:var(--slate-600);line-height:1.6}
+
+    /* CTA */
+    .cta-section{background:var(--slate-900);color:#fff;text-align:center}
+    .cta-section h2{color:#fff}
+    .cta-section .section-sub{color:var(--slate-300);margin-bottom:32px}
+    .cta-section .btn-primary{background:#fff;color:var(--slate-900)}
+    .cta-section .btn-primary:hover{background:var(--slate-100)}
+
+    /* Footer */
+    footer{padding:48px 0 32px;border-top:1px solid var(--slate-100);background:#fff}
+    .foot{display:grid;grid-template-columns:1fr;gap:32px}
+    @media(min-width:768px){.foot{grid-template-columns:2fr 1fr 1fr 1fr}}
+    .foot-brand{max-width:280px}
+    .foot-brand p{font-size:13px;color:var(--slate-500);margin-top:12px;line-height:1.6}
+    .foot-col h4{font-size:13px;font-weight:700;color:var(--slate-900);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.06em}
+    .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .foot-col a{font-size:13px;color:var(--slate-500)}
+    .foot-col a:hover{color:var(--slate-900)}
+    .foot-bottom{margin-top:40px;padding-top:24px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--slate-400)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Agency Payment Tracker"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg>
+        </span>
+        Agency Payment Tracker
+      </a>
+      <div class="nav-links">
+        <a href="#features">Возможности</a>
+        <a href="#how">Как работает</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#faq">Вопросы</a>
+      </div>
+      <div class="nav-actions">
+        <a href="/login" class="btn btn-ghost" style="min-height:36px;padding:8px 14px">Войти</a>
+        <a href="#pricing" class="btn btn-primary" style="min-height:36px;padding:8px 14px">Начать бесплатно</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Для маркетинговых агентств — Free навсегда</span>
+        <h1>Оплаты клиентов агентства — под контролем</h1>
+        <p class="hero-sub">Agency Payment Tracker — единый дашборд платежей, отчётов и зарплат для директора маркетингового агентства. Авто-просрочка, Telegram-уведомления, финансовые отчёты по рекламе и автоимпорт из ВК Рекламы и Яндекс.Директ.</p>
+        <div class="hero-cta">
+          <a href="#pricing" class="btn btn-primary btn-lg">Начать бесплатно</a>
+          <a href="#how" class="btn btn-ghost btn-lg">Как это работает</a>
+        </div>
+        <div class="trust">
+          <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Без карты при регистрации
+          </span>
+          <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Вход через Google
+          </span>
+          <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Уведомления в Telegram
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-mock">
+        <div class="mock-window">
+          <div class="mock-header">
+            <span class="dot-mac"></span><span class="dot-mac"></span><span class="dot-mac"></span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-stats">
+              <div class="mock-stat blue"><div class="lbl">Активные клиенты</div><div class="val">24</div></div>
+              <div class="mock-stat yellow"><div class="lbl">Ожидается за месяц</div><div class="val">1 240 000 ₽</div></div>
+              <div class="mock-stat red"><div class="lbl">Просрочено</div><div class="val">3</div></div>
+            </div>
+            <div class="mock-list">
+              <div class="mock-row overdue">
+                <span class="status-dot"></span>
+                <span class="name">ООО «Северный ветер»</span>
+                <span class="meta">7 дн.</span>
+                <span class="amount">85 000 ₽</span>
+              </div>
+              <div class="mock-row overdue">
+                <span class="status-dot"></span>
+                <span class="name">Студия «Красный квадрат»</span>
+                <span class="meta">2 дн.</span>
+                <span class="amount">120 000 ₽</span>
+              </div>
+              <div class="mock-row pending">
+                <span class="status-dot"></span>
+                <span class="name">ИП Смирнов А.В.</span>
+                <span class="meta">через 2 дн.</span>
+                <span class="amount">45 000 ₽</span>
+              </div>
+              <div class="mock-row pending">
+                <span class="status-dot"></span>
+                <span class="name">Кофейня «Зерно»</span>
+                <span class="meta">через 13 дн.</span>
+                <span class="amount">32 000 ₽</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Возможности</div>
+      <h2>Всё, что нужно директору агентства</h2>
+      <p class="section-sub">Платежи, зарплаты, отчёты по рекламе и команда — в одном инструменте. Без бухгалтерских таблиц и сложных интеграций.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Дашборд по всем клиентам</h3>
+        <p>Ближайшие и просроченные платежи в одном окне, фильтры по сотруднику и источнику лида, прогноз выручки на месяц и средний LTV.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Авто-платежи и просрочка</h3>
+        <p>Для ежемесячных клиентов следующий платёж создаётся автоматически после отметки оплаты. На следующий день после срока статус становится «Просрочен».</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H16l-2 3h-4l-2-3H2.5"/><path d="M5.5 5.5L2.5 12v6a2 2 0 002 2h15a2 2 0 002-2v-6l-3-6.5A2 2 0 0016.7 4H7.3a2 2 0 00-1.8 1.5z"/></svg></div>
+        <h3>Telegram-уведомления</h3>
+        <p>В день оплаты и при просрочке директор получает сообщение в Telegram с суммой и клиентом. Повторные напоминания каждые 3 дня, пока платёж не закроют.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v4M12 10v8M17 6v12"/></svg></div>
+        <h3>Финансовые отчёты для клиентов</h3>
+        <p>Ежедневный ввод spent / leads / clicks. CPL, CR и eCPC считаются автоматически, цветовая индикация по плану. Выгрузка в XLSX и Google Таблицу одной кнопкой.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M18 21l3-3-3-3"/></svg></div>
+        <h3>Автоимпорт ВК Рекламы и Яндекс.Директ</h3>
+        <p>Данные о расходах, кликах и лидах подтягиваются автоматически каждый день в 06:00. Один раз подключили рекламный кабинет — больше не вводите цифры вручную.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <h3>Команда сотрудников</h3>
+        <p>Приглашайте менеджеров по email. Каждый видит только своих клиентов, заполняет финансовые отчёты и не видит ни сумм договора, ни зарплат коллег.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Как это работает</div>
+      <h2>Настройка за 3 минуты</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Добавьте клиентов</h3>
+        <p>Название, контактное лицо, сумма и периодичность — ежемесячно или разовый платёж. При создании ежемесячного клиента система сразу планирует платежи на 3 месяца вперёд.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Получайте напоминания</h3>
+        <p>В день оплаты и при просрочке директор получает сообщение в Telegram. Сотрудник видит своих клиентов в дашборде и заполняет ежедневный отчёт.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Отмечайте оплаты и закрывайте месяц</h3>
+        <p>Клиент заплатил — отмечаете одной кнопкой, следующий платёж создаётся сам. В конце месяца выгружаете отчёт для клиента в XLSX или Google Таблицу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Тарифы</div>
+      <h2>Просто и честно</h2>
+      <p class="section-sub">Free навсегда — до 2 клиентов. Платные тарифы можно отменить в любой момент.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-tagline">Для старта и тестирования</div>
+        <div class="plan-price"><span class="num">0 ₽</span></div>
+        <div class="plan-price-spacer"></div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>До 2 клиентов</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Дашборд и история платежей</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Финансовые отчёты по клиентам</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Авто-просрочка платежей</li>
+        </ul>
+        <a href="/login" class="btn btn-ghost">Начать бесплатно</a>
+      </div>
+      <div class="plan featured">
+        <span class="plan-badge">Популярный</span>
+        <div class="plan-name">Solo</div>
+        <div class="plan-tagline">Для директора без сотрудников</div>
+        <div class="plan-price"><span class="num">1 990 ₽</span><span class="per">/ мес</span></div>
+        <div class="plan-price-yearly">или 14 900 ₽ / год — выгода 38%</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Неограниченно клиентов</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Telegram-уведомления</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Сводная аналитика по всем клиентам</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Выгрузка XLSX и Google Таблиц</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Автоимпорт ВК Рекламы и Яндекс.Директ</li>
+        </ul>
+        <a href="/login" class="btn btn-primary">Подключить Solo</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Team</div>
+        <div class="plan-tagline">Для агентства с командой</div>
+        <div class="plan-price"><span class="num">3 990 ₽</span><span class="per">/ мес</span></div>
+        <div class="plan-price-yearly">или 39 900 ₽ / год — выгода 17%</div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Всё из Solo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>До 5 сотрудников в команде</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Разделение прав: директор и сотрудник</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Учёт зарплат по клиентам</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Текстовые отчёты о работе (.docx)</li>
+        </ul>
+        <a href="/login" class="btn btn-ghost">Подключить Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Вопросы</div>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item" open>
+        <summary class="faq-q">Что включает бесплатный тариф?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="faq-a">Free действует навсегда: до 2 клиентов, дашборд, финансовые отчёты и авто-просрочка платежей. Telegram-уведомления, сводная аналитика, выгрузка отчётов и автоимпорт рекламных кабинетов — на тарифах Solo и Team.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Нужно ли подключать банк?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="faq-a">Нет. Agency Payment Tracker — это учёт и напоминания, а не банк-клиент. Вы сами отмечаете оплату одной кнопкой, когда клиент перевёл деньги.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Можно ли пригласить сотрудников?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="faq-a">Да, на тарифе Team — до 5 сотрудников. Каждый сотрудник видит только своих клиентов и заполняет финансовые и текстовые отчёты. Финансовые условия договора и чужие зарплаты сотрудник не видит.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Какие рекламные кабинеты можно подключить?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="faq-a">ВК Реклама (ads.vk.com) — три варианта авторизации: прямой рекламодатель, агентство и сторонний аккаунт через OAuth. Яндекс.Директ — через OAuth Яндекса. Данные за вчера подтягиваются автоматически каждый день в 06:00. Доступно на Solo и Team.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Куда приходят уведомления?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="faq-a">В Telegram-бот директору. Привязка через команду <code>/start</code> по уникальной ссылке. Уведомления приходят в день оплаты, на следующий день после просрочки и далее каждые 3 дня, пока платёж не закроют. Время напоминаний и часовой пояс настраиваются в профиле.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Безопасно ли хранить данные клиентов?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="faq-a">Вход — только через Google OAuth, паролей мы не храним. Токены рекламных кабинетов шифруются (AES-256-GCM). Данные размещаются на VPS, ежедневный бэкап БД. Доступ к чужим клиентам закрыт на уровне API — сотрудник физически не получит чужие записи.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:32px">
+      <h2>Начните контролировать оплаты сегодня</h2>
+      <p class="section-sub">Free навсегда — до 2 клиентов. Без карты при регистрации. Вход через Google.</p>
+    </div>
+    <a href="/login" class="btn btn-primary btn-lg">Создать аккаунт</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div class="foot-brand">
+        <a href="#" class="brand">
+          <span class="brand-mark">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Agency Payment Tracker"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg>
+          </span>
+          Agency Payment Tracker
+        </a>
+        <p>Контроль оплат, отчётности и команды для маркетинговых агентств. Без лишнего.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Продукт</h4>
+        <ul>
+          <li><a href="#features">Возможности</a></li>
+          <li><a href="#pricing">Тарифы</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Компания</h4>
+        <ul>
+          <li><a href="#">О сервисе</a></li>
+          <li><a href="#">Блог</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Юридическое</h4>
+        <ul>
+          <li><a href="#">Условия использования</a></li>
+          <li><a href="#">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Agency Payment Tracker</span>
+      <span>Сделано для маркетинговых агентств</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
