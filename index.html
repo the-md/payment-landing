@@ -160,7 +160,12 @@
     @media(max-width:767px){.foot-col{justify-content:flex-start}.foot-col ul{justify-content:flex-start}}
     .foot-col a{font-size:13px;color:var(--slate-500)}
     .foot-col a:hover{color:var(--slate-900)}
-    .foot-bottom{margin-top:40px;padding-top:24px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--slate-400)}
+    .foot-legal{margin-top:32px;padding-top:24px;border-top:1px solid var(--slate-100);font-size:12px;color:var(--slate-500);line-height:1.7}
+    .foot-legal p{margin:0}
+    .foot-legal p + p{margin-top:4px;color:var(--slate-400)}
+    .foot-legal a{color:var(--slate-600);text-decoration:underline}
+    .foot-legal a:hover{color:var(--slate-900)}
+    .foot-bottom{margin-top:24px;padding-top:24px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--slate-400)}
   </style>
 </head>
 <body>
@@ -455,8 +460,20 @@
           <li><a href="#features">Возможности</a></li>
           <li><a href="#pricing">Тарифы</a></li>
           <li><a href="#faq">Вопросы</a></li>
+          <li><a href="/offer.pdf" target="_blank" rel="noopener">Оферта</a></li>
         </ul>
       </div>
+    </div>
+    <div class="foot-legal">
+      <p>
+        Самозанятый Мухин Дмитрий Алексеевич · ИНН 564300460569 ·
+        <a href="mailto:info@digital-cash.ru">info@digital-cash.ru</a>
+      </p>
+      <p>
+        Оплата подписки производится на условиях
+        <a href="/offer.pdf" target="_blank" rel="noopener">публичной оферты</a>.
+        Приём платежей — сервис «Продамус».
+      </p>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Digital Cash</span>
