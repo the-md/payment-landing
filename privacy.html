@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Политика конфиденциальности — Digital Cash</title>
+  <meta name="description" content="Политика конфиденциальности Digital Cash: какие персональные данные собираются, цели и сроки обработки, передача третьим лицам, права субъектов по 152-ФЗ, обработка данных клиентов агентства по поручению.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://digital-cash.ru/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-300:#cbd5e1;
+      --slate-400:#94a3b8;--slate-500:#64748b;--slate-600:#475569;--slate-700:#334155;
+      --slate-800:#1e293b;--slate-900:#0f172a;
+      --blue-50:#eff6ff;--blue-100:#dbeafe;--blue-500:#3b82f6;--blue-600:#2563eb;--blue-700:#1d4ed8;
+    }
+    html{scroll-behavior:smooth}
+    html,body{font-family:'Inter',-apple-system,system-ui,sans-serif;color:var(--slate-900);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--slate-100)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+    .brand-mark{width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+    .brand-mark svg{width:32px;height:32px;display:block}
+    .nav-back{font-size:14px;color:var(--slate-600);font-weight:500}
+    .nav-back:hover{color:var(--slate-900)}
+
+    .doc{max-width:820px;margin:0 auto;padding:48px 24px 80px}
+    .doc-header{padding-bottom:24px;border-bottom:1px solid var(--slate-100)}
+    .doc-header h1{font-size:30px;font-weight:800;letter-spacing:-0.02em;line-height:1.15;margin-bottom:16px;text-wrap:balance}
+    @media(min-width:768px){.doc-header h1{font-size:38px}}
+    .doc-meta{display:flex;flex-wrap:wrap;gap:10px 16px;font-size:13px;color:var(--slate-500);align-items:center}
+    .doc-meta .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:var(--blue-50);color:var(--blue-700);font-weight:600}
+
+    .toc{margin:32px 0;padding:20px 24px;background:var(--slate-50);border:1px solid var(--slate-100);border-radius:12px}
+    .toc h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--slate-500);margin-bottom:14px}
+    .toc ol{list-style:none;display:grid;gap:8px}
+    .toc li{font-size:14px}
+    .toc a{color:var(--slate-700)}
+    .toc a:hover{color:var(--blue-600);text-decoration:underline}
+
+    section.s{scroll-margin-top:80px;margin-top:40px}
+    section.s>h2{font-size:21px;font-weight:700;letter-spacing:-0.01em;margin-bottom:14px}
+    section.s h3{font-size:16px;font-weight:600;margin:20px 0 8px;color:var(--slate-800)}
+    .doc p{color:var(--slate-700);line-height:1.75;margin-bottom:12px}
+    .doc ul,.doc ol{color:var(--slate-700);line-height:1.75;margin:0 0 12px;padding-left:22px}
+    .doc li{margin-bottom:6px}
+    .doc strong{color:var(--slate-900);font-weight:600}
+    .doc a.link{color:var(--blue-600);text-decoration:underline}
+    .doc a.link:hover{color:var(--blue-700)}
+    .num{color:var(--slate-400);font-variant-numeric:tabular-nums;margin-right:6px}
+    .callout{margin:16px 0;padding:16px 20px;background:var(--blue-50);border:1px solid var(--blue-100);border-radius:12px;font-size:14px}
+    .callout strong{color:var(--blue-700)}
+    .callout p{color:var(--slate-700);margin-bottom:8px}
+    .callout p:last-child{margin-bottom:0}
+    table.dt{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px}
+    table.dt th,table.dt td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--slate-100);vertical-align:top}
+    table.dt th{color:var(--slate-500);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.04em}
+    table.dt td{color:var(--slate-700)}
+
+    .req{margin-top:56px;padding:24px;background:var(--slate-50);border:1px solid var(--slate-100);border-radius:12px;font-size:14px;color:var(--slate-600);line-height:1.9}
+    .req h2{font-size:16px;font-weight:700;color:var(--slate-900);margin-bottom:12px}
+    .req p{margin:0}
+    .req strong{color:var(--slate-800)}
+    .req a{color:var(--blue-600);text-decoration:underline}
+    .doc-nav{margin-top:28px;display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+    .doc-nav a{color:var(--blue-600);text-decoration:underline}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav class="nav">
+      <a href="/" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-label="Digital Cash"><rect x="8" y="26" width="14" height="20" rx="4" fill="#60a5fa"/><rect x="25" y="14" width="14" height="32" rx="4" fill="#2563eb"/><rect x="42" y="20" width="14" height="26" rx="4" fill="#1e3a8a"/><circle cx="49" cy="26" r="3.5" fill="#ff6b4a"/></svg>
+        </span>
+        Digital Cash
+      </a>
+      <a href="/" class="nav-back">← На главную</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="doc-header">
+    <h1>Политика конфиденциальности и обработки персональных данных</h1>
+    <div class="doc-meta">
+      <span class="badge">Версия 1.0</span>
+      <span>Дата вступления в силу: 30 мая 2026 г.</span>
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="Содержание">
+    <h2>Содержание</h2>
+    <ol>
+      <li><a href="#general">1. Общие положения</a></li>
+      <li><a href="#operator">2. Оператор персональных данных</a></li>
+      <li><a href="#data">3. Какие данные мы обрабатываем</a></li>
+      <li><a href="#purposes">4. Цели обработки</a></li>
+      <li><a href="#legal">5. Правовые основания обработки</a></li>
+      <li><a href="#retention">6. Сроки хранения</a></li>
+      <li><a href="#transfer">7. Передача третьим лицам</a></li>
+      <li><a href="#clients">8. Обработка данных клиентов агентства (по поручению)</a></li>
+      <li><a href="#rights">9. Права субъекта персональных данных</a></li>
+      <li><a href="#deletion">10. Удаление аккаунта</a></li>
+      <li><a href="#cookies">11. Файлы cookie и аналитика</a></li>
+      <li><a href="#location">12. Хранение данных на территории РФ</a></li>
+      <li><a href="#security">13. Меры защиты данных</a></li>
+      <li><a href="#breach">14. Уведомление об утечках</a></li>
+      <li><a href="#changes">15. Изменение Политики</a></li>
+      <li><a href="#contacts">16. Контакты для запросов</a></li>
+    </ol>
+  </nav>
+
+  <section class="s" id="general">
+    <h2>1. Общие положения</h2>
+    <p><span class="num">1.1.</span> Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок обработки и защиты персональных данных пользователей сервиса Digital Cash (далее — «Сервис») и разработана в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных» (далее — «152-ФЗ») и иными нормативными актами РФ.</p>
+    <p><span class="num">1.2.</span> Используя Сервис, Пользователь подтверждает согласие с условиями настоящей Политики. Если Пользователь не согласен с её условиями, он должен прекратить использование Сервиса.</p>
+    <p><span class="num">1.3.</span> Политика является неотъемлемой частью отношений сторон наряду с <a class="link" href="/offer.html">Публичной офертой</a> и <a class="link" href="/terms.html">Пользовательским соглашением</a>.</p>
+    <p><span class="num">1.4.</span> Под персональными данными понимается любая информация, относящаяся к прямо или косвенно определённому либо определяемому физическому лицу (субъекту персональных данных).</p>
+  </section>
+
+  <section class="s" id="operator">
+    <h2>2. Оператор персональных данных</h2>
+    <p><span class="num">2.1.</span> Оператором персональных данных пользователей Сервиса является самозанятый <strong>Мухин Дмитрий Алексеевич</strong> (плательщик налога на профессиональный доход), ИНН 564300460569, электронная почта <a class="link" href="mailto:info@digital-cash.ru">info@digital-cash.ru</a> (далее — «Оператор», «мы»).</p>
+    <p><span class="num">2.2.</span> В отношении персональных данных клиентов и сотрудников агентства, которые вносит в Сервис сам Пользователь-директор, действует особый порядок: Оператором этих данных является сам Пользователь, а мы выступаем лицом, осуществляющим обработку по его поручению (см. раздел 8).</p>
+  </section>
+
+  <section class="s" id="data">
+    <h2>3. Какие данные мы обрабатываем</h2>
+    <p><span class="num">3.1.</span> В процессе использования Сервиса обрабатываются следующие категории данных:</p>
+    <table class="dt">
+      <thead><tr><th>Категория</th><th>Состав данных</th><th>Источник</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1. Данные Пользователя-директора</strong></td><td>адрес электронной почты, имя, аватар, идентификатор Google (google_id)</td><td>авторизация через Google OAuth</td></tr>
+        <tr><td><strong>2. Контакт Telegram</strong></td><td>идентификатор чата Telegram (chat_id)</td><td>подключается Пользователем для уведомлений</td></tr>
+        <tr><td><strong>3. Данные клиентов агентства</strong></td><td>названия компаний, контактные имена, телефоны, суммы платежей, условия договоров, заметки</td><td>вносятся самим Пользователем-директором</td></tr>
+        <tr><td><strong>4. Данные сотрудников агентства</strong></td><td>адрес электронной почты, имя</td><td>при приглашении сотрудника директором</td></tr>
+        <tr><td><strong>5. Финансовые показатели по кампаниям</strong></td><td>ежедневные финансовые показатели по рекламным кампаниям клиентов</td><td>вносятся или импортируются Пользователем</td></tr>
+        <tr><td><strong>6. Загруженные файлы</strong></td><td>файлы отчётов о работе в формате .docx</td><td>загружаются Пользователем</td></tr>
+      </tbody>
+    </table>
+    <p><span class="num">3.2.</span> Мы не запрашиваем и не обрабатываем специальные категории персональных данных (о здоровье, расовой принадлежности, политических взглядах и т.п.) и биометрические персональные данные.</p>
+    <p><span class="num">3.3.</span> Автоматически могут собираться технические данные, необходимые для работы Сервиса (IP-адрес, тип браузера, журналы доступа) — в объёме, минимально необходимом для обеспечения работоспособности и безопасности.</p>
+  </section>
+
+  <section class="s" id="purposes">
+    <h2>4. Цели обработки</h2>
+    <p><span class="num">4.1.</span> Персональные данные обрабатываются в следующих целях:</p>
+    <ul>
+      <li><strong>предоставление доступа к Сервису</strong> — регистрация, авторизация и идентификация Пользователя;</li>
+      <li><strong>оказание услуг</strong> — учёт клиентов, платежей, зарплат сотрудников и формирование финансовых отчётов;</li>
+      <li><strong>отправка уведомлений</strong> — информирование о платежах, просрочках и событиях через Telegram и электронную почту;</li>
+      <li><strong>биллинг</strong> — обработка оплаты Подписки, формирование чеков, учёт Тарифа;</li>
+      <li><strong>техническая поддержка</strong> — ответы на обращения Пользователя;</li>
+      <li><strong>исполнение требований законодательства</strong> — налоговый и бухгалтерский учёт операций.</li>
+    </ul>
+    <p><span class="num">4.2.</span> Мы не используем персональные данные для целей, несовместимых с указанными выше, и не продаём их третьим лицам.</p>
+  </section>
+
+  <section class="s" id="legal">
+    <h2>5. Правовые основания обработки</h2>
+    <p><span class="num">5.1.</span> Обработка персональных данных осуществляется на следующих правовых основаниях:</p>
+    <ul>
+      <li><strong>согласие субъекта</strong> на обработку персональных данных (статья 6 152-ФЗ), выраженное при регистрации и использовании Сервиса;</li>
+      <li><strong>исполнение договора</strong>, стороной которого является субъект (Публичная оферта, Пользовательское соглашение);</li>
+      <li><strong>исполнение возложенных на Оператора обязанностей</strong>, предусмотренных законодательством (налоговый учёт, формирование чеков через приложение «Мой налог»).</li>
+    </ul>
+    <p><span class="num">5.2.</span> Обработка данных клиентов и сотрудников агентства осуществляется на основании поручения Пользователя-директора (раздел 8).</p>
+  </section>
+
+  <section class="s" id="retention">
+    <h2>6. Сроки хранения</h2>
+    <p><span class="num">6.1.</span> Персональные данные хранятся в течение всего срока действия Аккаунта Пользователя.</p>
+    <p><span class="num">6.2.</span> После удаления Аккаунта данные удаляются, за исключением сведений, которые мы обязаны хранить в силу закона. Данные, связанные с расчётами и подтверждением оплаты, могут храниться в течение <strong>3 (трёх) лет</strong> после удаления Аккаунта для выполнения требований законодательства об учёте.</p>
+    <p><span class="num">6.3.</span> По истечении установленных сроков персональные данные подлежат уничтожению либо обезличиванию.</p>
+  </section>
+
+  <section class="s" id="transfer">
+    <h2>7. Передача третьим лицам</h2>
+    <p><span class="num">7.1.</span> Для функционирования Сервиса мы привлекаем сторонние сервисы. Передача данных каждому из них ограничена объёмом, необходимым для достижения соответствующей цели:</p>
+    <table class="dt">
+      <thead><tr><th>Сервис</th><th>Что передаётся</th><th>Цель передачи</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Google</strong></td><td>данные учётной записи (email, имя, аватар, google_id)</td><td>авторизация и регистрация через Google OAuth</td></tr>
+        <tr><td><strong>Telegram</strong></td><td>идентификатор чата (chat_id), текст уведомления</td><td>доставка уведомлений о платежах и событиях</td></tr>
+        <tr><td><strong>Resend</strong></td><td>адрес электронной почты, имя получателя</td><td>отправка приглашений и сервисных писем</td></tr>
+        <tr><td><strong>Продамус</strong></td><td>данные, необходимые для проведения платежа</td><td>приём оплаты Подписки</td></tr>
+      </tbody>
+    </table>
+    <p><span class="num">7.2.</span> Каждый из привлекаемых сервисов обрабатывает данные на основании собственных условий и политик. Мы передаём минимально необходимый объём данных и не передаём данные третьим лицам в иных целях.</p>
+    <p><span class="num">7.3.</span> Передача данных по запросу уполномоченных государственных органов осуществляется в случаях и порядке, предусмотренных законодательством РФ.</p>
+  </section>
+
+  <section class="s" id="clients">
+    <h2>8. Обработка данных клиентов агентства (по поручению)</h2>
+    <div class="callout">
+      <p><strong>Это ключевой раздел для пользователей-директоров агентств.</strong></p>
+      <p>Внося в Сервис данные своих клиентов и сотрудников, вы остаётесь оператором этих данных, а мы лишь обрабатываем их по вашему поручению.</p>
+    </div>
+    <p><span class="num">8.1.</span> Пользователь-директор самостоятельно вносит в Сервис персональные данные третьих лиц — клиентов агентства (контактные имена, телефоны и пр.) и сотрудников (email, имя). В отношении этих данных:</p>
+    <ul>
+      <li><strong>Пользователь является оператором</strong> персональных данных в смысле 152-ФЗ;</li>
+      <li><strong>мы являемся лицом, осуществляющим обработку персональных данных по поручению оператора</strong> (часть 3 статьи 6 152-ФЗ), то есть процессором.</li>
+    </ul>
+    <p><span class="num">8.2.</span> Мы обрабатываем данные клиентов и сотрудников исключительно в целях обеспечения работы Сервиса для соответствующего Пользователя и в пределах его поручения: храним, отображаем, изменяем, удаляем данные по командам Пользователя. Мы не определяем самостоятельно цели обработки этих данных и не используем их в собственных интересах.</p>
+    <p><span class="num">8.3.</span> Пользователь-директор <strong>гарантирует, что имеет все необходимые правовые основания</strong> (в том числе согласия субъектов либо иное законное основание) для внесения данных третьих лиц в Сервис и их обработки нами по его поручению, а также самостоятельно обеспечивает информирование таких лиц и реализацию их прав.</p>
+    <p><span class="num">8.4.</span> Ответственность перед субъектами персональных данных (клиентами и сотрудниками) за правомерность сбора и обработки их данных несёт Пользователь-директор как оператор. Запросы таких субъектов, поступившие к нам напрямую, мы перенаправляем соответствующему Пользователю-оператору.</p>
+    <p><span class="num">8.5.</span> Мы обеспечиваем конфиденциальность и безопасность данных, обрабатываемых по поручению, применяя меры защиты, описанные в разделе 13.</p>
+  </section>
+
+  <section class="s" id="rights">
+    <h2>9. Права субъекта персональных данных</h2>
+    <p><span class="num">9.1.</span> Субъект персональных данных имеет право:</p>
+    <ul>
+      <li>получать информацию об обработке своих данных и доступ к ним;</li>
+      <li>требовать уточнения, изменения (обновления) данных в случае их неполноты или неточности;</li>
+      <li>требовать удаления (уничтожения) данных, если они обрабатываются незаконно или более не нужны для целей обработки;</li>
+      <li>отозвать ранее данное согласие на обработку персональных данных;</li>
+      <li>обжаловать действия или бездействие Оператора в Роскомнадзоре или в судебном порядке.</li>
+    </ul>
+    <p><span class="num">9.2.</span> Большинство данных Пользователь может изменить самостоятельно в интерфейсе Сервиса. Для реализации остальных прав следует направить запрос на адрес <a class="link" href="mailto:info@digital-cash.ru">info@digital-cash.ru</a>.</p>
+    <p><span class="num">9.3.</span> Отзыв согласия на обработку данных, необходимых для оказания услуг, влечёт невозможность дальнейшего использования Сервиса и может являться основанием для удаления Аккаунта.</p>
+  </section>
+
+  <section class="s" id="deletion">
+    <h2>10. Удаление аккаунта</h2>
+    <p><span class="num">10.1.</span> Для удаления Аккаунта Пользователь направляет запрос с адреса электронной почты, привязанного к Аккаунту, на адрес <a class="link" href="mailto:info@digital-cash.ru">info@digital-cash.ru</a>.</p>
+    <p><span class="num">10.2.</span> Аккаунт и связанные с ним персональные данные удаляются в срок <strong>до 30 (тридцати) календарных дней</strong> с момента получения запроса, за исключением данных, подлежащих хранению в силу закона (раздел 6).</p>
+    <p><span class="num">10.3.</span> Удаление Аккаунта Пользователя-директора влечёт удаление внесённых им данных клиентов и сотрудников агентства, обрабатываемых по его поручению.</p>
+  </section>
+
+  <section class="s" id="cookies">
+    <h2>11. Файлы cookie и аналитика</h2>
+    <p><span class="num">11.1.</span> Сервис использует технически необходимые файлы cookie и аналогичные технологии для авторизации, поддержания сессии и обеспечения безопасности. Без них корректная работа Сервиса невозможна.</p>
+    <p><span class="num">11.2.</span> <em>Системы веб-аналитики на момент публикации настоящей редакции не используются. В случае их подключения настоящий раздел будет дополнен сведениями об используемых системах, составе собираемых данных и целях, а Политика будет обновлена в порядке раздела 15.</em></p>
+    <p><span class="num">11.3.</span> Пользователь может управлять файлами cookie в настройках своего браузера; отключение технически необходимых cookie может ограничить работу Сервиса.</p>
+  </section>
+
+  <section class="s" id="location">
+    <h2>12. Хранение данных на территории РФ</h2>
+    <p><span class="num">12.1.</span> В соответствии с частью 5 статьи 18 152-ФЗ запись, систематизация, накопление, хранение, уточнение и извлечение персональных данных граждан Российской Федерации осуществляются с использованием баз данных, расположенных <strong>на территории Российской Федерации</strong>.</p>
+    <p><span class="num">12.2.</span> Данные хранятся на виртуальном сервере (VPS), размещённом в дата-центре на территории РФ, в базе данных PostgreSQL. Производится ежедневное резервное копирование.</p>
+  </section>
+
+  <section class="s" id="security">
+    <h2>13. Меры защиты данных</h2>
+    <p><span class="num">13.1.</span> Для защиты персональных данных от неправомерного доступа, изменения, раскрытия или уничтожения применяются организационные и технические меры, включая:</p>
+    <ul>
+      <li><strong>шифрование при передаче данных</strong> — использование протокола HTTPS (TLS);</li>
+      <li><strong>контроль доступа</strong> — авторизация через Google OAuth, ограничение доступа к серверной инфраструктуре;</li>
+      <li><strong>резервное копирование</strong> — ежедневные бэкапы базы данных;</li>
+      <li>минимизацию состава обрабатываемых данных и разграничение прав доступа.</li>
+    </ul>
+    <p><span class="num">13.2.</span> Пользователь обязан обеспечивать сохранность доступа к своей учётной записи Google, используемой для входа в Сервис.</p>
+  </section>
+
+  <section class="s" id="breach">
+    <h2>14. Уведомление об утечках</h2>
+    <p><span class="num">14.1.</span> При выявлении инцидента, повлёкшего неправомерную или случайную передачу (предоставление, распространение, доступ) персональных данных, Оператор принимает меры по устранению последствий инцидента.</p>
+    <p><span class="num">14.2.</span> Оператор уведомляет уполномоченный орган по защите прав субъектов персональных данных (Роскомнадзор) в сроки, установленные 152-ФЗ, а также информирует затронутых Пользователей в разумный срок после установления факта инцидента.</p>
+  </section>
+
+  <section class="s" id="changes">
+    <h2>15. Изменение Политики</h2>
+    <p><span class="num">15.1.</span> Оператор вправе вносить изменения в настоящую Политику. Актуальная редакция всегда доступна на сайте по адресу настоящей страницы с указанием даты вступления в силу.</p>
+    <p><span class="num">15.2.</span> Существенные изменения доводятся до сведения Пользователей путём публикации на сайте и (или) уведомления по электронной почте. Продолжение использования Сервиса после вступления изменений в силу означает согласие с новой редакцией.</p>
+  </section>
+
+  <section class="s" id="contacts">
+    <h2>16. Контакты для запросов по персональным данным</h2>
+    <p><span class="num">16.1.</span> По любым вопросам, связанным с обработкой персональных данных, а также для реализации прав субъекта обращайтесь по адресу <a class="link" href="mailto:info@digital-cash.ru">info@digital-cash.ru</a>.</p>
+    <div class="req">
+      <h2>Оператор персональных данных</h2>
+      <p><strong>Самозанятый Мухин Дмитрий Алексеевич</strong></p>
+      <p>Плательщик налога на профессиональный доход (НПД)</p>
+      <p>ИНН: <strong>564300460569</strong></p>
+      <p>Электронная почта: <a href="mailto:info@digital-cash.ru">info@digital-cash.ru</a></p>
+      <p>Сайт: <a href="https://digital-cash.ru/">digital-cash.ru</a></p>
+    </div>
+    <nav class="doc-nav" aria-label="Другие документы">
+      <a href="/offer.html">Публичная оферта</a>
+      <a href="/terms.html">Пользовательское соглашение</a>
+    </nav>
+  </section>
+</main>
+
+</body>
+</html>
