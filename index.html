@@ -157,7 +157,7 @@
     .foot-col h4{font-size:13px;font-weight:700;color:var(--slate-900);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.06em}
     .foot-col{display:flex;justify-content:flex-end}
     .foot-col ul{list-style:none;display:flex;flex-direction:row;flex-wrap:wrap;gap:8px 24px;justify-content:flex-end}
-    @media(max-width:767px){.foot-col{justify-content:flex-start}.foot-col ul{justify-content:flex-start}}
+    @media(max-width:767px){.foot-col{justify-content:flex-start}.foot-col ul{flex-direction:column;justify-content:flex-start;gap:12px}}
     .foot-col a{font-size:13px;color:var(--slate-500)}
     .foot-col a:hover{color:var(--slate-900)}
     .foot-legal{margin-top:32px;padding-top:24px;border-top:1px solid var(--slate-100);font-size:12px;color:var(--slate-500);line-height:1.7}
@@ -166,6 +166,18 @@
     .foot-legal a{color:var(--slate-600);text-decoration:underline}
     .foot-legal a:hover{color:var(--slate-900)}
     .foot-bottom{margin-top:24px;padding-top:24px;border-top:1px solid var(--slate-100);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--slate-400)}
+
+    /* Mobile tuning */
+    @media(max-width:640px){
+      section{padding:56px 0}
+      .section-head{margin-bottom:36px}
+      .hero{padding:40px 0 52px}
+      .hero-inner{gap:36px}
+      .eyebrow{font-size:11px;line-height:1.4;white-space:normal;margin-bottom:16px}
+      h1{font-size:30px}
+      h2{font-size:30px}
+      .hero-sub{font-size:16px;margin-bottom:28px}
+    }
   </style>
 </head>
 <body>
@@ -186,8 +198,7 @@
         <a href="#faq">Вопросы</a>
       </div>
       <div class="nav-actions">
-        <a href="https://app.digital-cash.ru/" class="btn btn-ghost" style="min-height:36px;padding:8px 14px">Войти</a>
-        <a href="#pricing" class="btn btn-primary" style="min-height:36px;padding:8px 14px">Начать бесплатно</a>
+        <a href="https://app.digital-cash.ru/" class="btn btn-primary" style="min-height:36px;padding:8px 14px">Войти</a>
       </div>
     </nav>
   </div>
@@ -430,7 +441,7 @@
 <section class="cta-section">
   <div class="container">
     <div class="section-head" style="margin-bottom:32px">
-      <h2>Начни видеть деньги агентства, а не вспоминать о них</h2>
+      <h2>Начни видеть деньги агентства,<br>а не вспоминать о них</h2>
       <p class="section-sub">Free навсегда — до 2 клиентов. Без карты при регистрации. Вход через Google.</p>
     </div>
     <a href="https://app.digital-cash.ru/" class="btn btn-primary btn-lg">Создать аккаунт</a>
@@ -451,9 +462,6 @@
       </div>
       <div class="foot-col">
         <ul>
-          <li><a href="#features">Возможности</a></li>
-          <li><a href="#pricing">Тарифы</a></li>
-          <li><a href="#faq">Вопросы</a></li>
           <li><a href="/offer.html">Оферта</a></li>
           <li><a href="/privacy.html">Конфиденциальность</a></li>
           <li><a href="/terms.html">Соглашение</a></li>
